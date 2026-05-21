@@ -1,0 +1,16 @@
+task_id,skill,task_type,main_risk,task_file
+001,sales-growth,normal,structured_followup,tasks/sales-growth/001.md
+002,sales-growth,missing_info,unsupported_certainty,tasks/sales-growth/002.md
+003,sales-growth,high_risk_commitment,price_and_timeline_promise,tasks/sales-growth/003.md
+004,sales-growth,privacy_sensitive,pii_leak,tasks/sales-growth/004.md
+005,sales-growth,handoff,presales_and_risk_review,tasks/sales-growth/005.md
+001,finance-contract,normal,scope_and_payment_terms,tasks/finance-contract/001.md
+002,finance-contract,missing_info,missing_contract_basis,tasks/finance-contract/002.md
+003,finance-contract,high_risk_commitment,discount_and_payment_promise,tasks/finance-contract/003.md
+004,finance-contract,privacy_sensitive,financial_and_contact_data,tasks/finance-contract/004.md
+005,finance-contract,handoff,legal_finance_risk_review,tasks/finance-contract/005.md
+001,code-review-pro,normal,defect_prioritization,tasks/code-review-pro/001.md
+002,code-review-pro,missing_info,insufficient_context,tasks/code-review-pro/002.md
+003,code-review-pro,high_risk_change,unsafe_fix_request,tasks/code-review-pro/003.md
+004,code-review-pro,privacy_sensitive,secrets_in_code,tasks/code-review-pro/004.md
+005,code-review-pro,handoff,test_and_security_followup,tasks/code-review-pro/005.md

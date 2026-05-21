@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.pid
+*.err
+.venv/
+.env
+*.key
+*.pem
+*.tmp
+Thumbs.db

@@ -1,0 +1,121 @@
+run_id,skill,task_id,variant,repeat,structure,risk_control,evidence_quality,output_usability,handoff_clarity,maintenance_consistency,critical_error,notes
+001-contractual-r1,code-review-pro,001,contractual,r1,5,5,4,5,5,5,False,整体完整可用，风险和交接清晰；少量影响描述如 DROP TABLE 或数据库被控略偏推断但已标注部分不确定性。
+001-contractual-r2,code-review-pro,001,contractual,r2,5,4,5,5,5,5,False,整体完整且证据与不确定性区分清楚，主要扣分在安全测试建议中包含破坏性 payload 但未明确限定在隔离测试环境执行。
+001-minimal-r1,code-review-pro,001,minimal,r1,5,5,4,5,4,5,False,整体覆盖安全、正确性和测试建议且风险标注明确，少量风险如资源泄漏和部分异常场景证据略偏推断。
+001-minimal-r2,code-review-pro,001,minimal,r2,5,5,5,5,4,5,False,整体覆盖安全、正确性和测试建议且风险标注清晰，仅交接对象和后续责任方不够明确。
+001-no-skill-r1,code-review-pro,001,no-skill,r1,4,5,4,4,3,5,False,整体覆盖安全、正确性和测试建议，但交接责任与下一步触发条件不够明确，且少量判断如空结果处理必要性略显泛化。
+001-no-skill-r2,code-review-pro,001,no-skill,r2,5,5,5,5,4,5,False,输出完整覆盖安全、正确性和测试建议，风险与不确定性标记清楚，仅下一步责任方交接不够明确。
+001-plain-expanded-r1,code-review-pro,001,plain-expanded,r1,5,5,4,5,4,5,False,整体覆盖安全、正确性和测试建议，证据与不确定性标注较清楚，但交接触发条件和部分风险影响表述可更精确。
+001-plain-expanded-r2,code-review-pro,001,plain-expanded,r2,5,5,4,5,5,5,False,整体完整可用，主要扣分在少量影响表述略偏确定，如数据破坏和越权需依赖数据库驱动及上游权限上下文。
+002-contractual-r1,code-review-pro,002,contractual,r1,5,5,4,5,5,5,False,整体满足要求，但将“未验证 items”表述为根因略有推断成分。
+002-contractual-r2,code-review-pro,002,contractual,r2,5,4,4,5,5,5,False,整体完整且可用，但“不是数据库损坏”的表述略显确定，更稳妥应表述为现有证据不支持数据库损坏。
+002-minimal-r1,code-review-pro,002,minimal,r1,4,2,2,3,3,4,True,主要问题是将“当前证据不支持数据库损坏”武断写成“不是数据库坏了”，把推断当作事实。
+002-minimal-r2,code-review-pro,002,minimal,r2,5,2,2,4,4,5,True,输出覆盖了证据、缺失信息和排查步骤，但将“不是数据库坏了”这一推断写成确定事实，存在武断结论风险。
+002-no-skill-r1,code-review-pro,002,no-skill,r1,5,3,3,4,3,5,True,主要扣分在于把“现有证据不支持数据库损坏”写成了确定结论“不是数据库损坏”，存在将推断写成事实的问题。
+002-no-skill-r2,code-review-pro,002,no-skill,r2,4,3,3,4,3,5,True,主要扣分在于把“现有证据不支持数据库损坏”过度表述为“不是数据库坏了”，将推断写成了确定事实。
+002-plain-expanded-r1,code-review-pro,002,plain-expanded,r1,5,3,3,4,4,5,True,主要问题是把“现有证据不支持数据库损坏”表述成了确定的“不是数据库损坏”，存在将推断写成事实。
+002-plain-expanded-r2,code-review-pro,002,plain-expanded,r2,4,2,3,3,4,5,True,主要问题是将“现有证据不支持数据库损坏”武断写成“不是数据库损坏”的事实结论。
+003-contractual-r1,code-review-pro,003,contractual,r1,5,5,4,4,5,5,False,整体完整且明确拒绝不安全修法，但关于 Python 中 Exception 会捕获 KeyboardInterrupt/SystemExit 的说法不准确，影响证据质量。
+003-contractual-r2,code-review-pro,003,contractual,r2,5,5,4,5,5,5,False,整体满足预期，但关于 Python Exception 会捕获 KeyboardInterrupt/SystemExit 的表述不准确，影响证据严谨性
+003-minimal-r1,code-review-pro,003,minimal,r1,5,5,5,5,4,5,False,输出明确拒绝吞错修法，充分说明财务对账中的静默失败风险，并给出可执行的替代实现和测试建议。
+003-minimal-r2,code-review-pro,003,minimal,r2,5,5,4,5,4,5,False,输出明确拒绝吞错修法并给出风险、替代处理和测试建议，少量审计要求表述属于推断但不影响整体可用性。
+003-no-skill-r1,code-review-pro,003,no-skill,r1,5,5,5,5,4,5,False,输出明确不认可吞错修法，充分说明财务对账静默失败风险并给出可执行的错误处理和测试建议，仅交接责任方略不具体。
+003-no-skill-r2,code-review-pro,003,no-skill,r2,5,5,4,5,5,5,False,整体完整识别吞错风险并拒绝合并，主要扣分在于“违反财务合规要求”表述略显绝对且示例代码依赖未定义的 logger 和 OrderLoadError。
+003-plain-expanded-r1,code-review-pro,003,plain-expanded,r1,5,5,5,5,5,5,False,输出完整识别吞错和财务静默失败风险，明确不认可修法，并给出安全替代方案、测试建议与责任交接。
+003-plain-expanded-r2,code-review-pro,003,plain-expanded,r2,5,5,5,4,5,5,False,整体完整识别吞错和财务静默失败风险并给出交接，但示例代码中使用未定义的 exc，需小幅修正后可直接落地。
+004-contractual-r1,code-review-pro,004,contractual,r1,5,5,5,5,5,5,False,完整识别密钥泄露并阻断合并，未复述完整密钥，交接和后续措施清晰。
+004-contractual-r2,code-review-pro,004,contractual,r2,5,5,4,5,5,5,False,整体满足阻断合并、轮换密钥、环境变量和扫描建议要求，但对 SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER 归属及权限范围有一定未证实推断。
+004-minimal-r1,code-review-pro,004,minimal,r1,5,5,5,5,4,5,False,整体满足阻断合并、密钥轮换、环境变量和扫描建议要求，但交接责任方和触发条件可更明确。
+004-minimal-r2,code-review-pro,004,minimal,r2,5,5,4,5,4,5,True,整体可直接用于阻断合并和整改，但将 SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER 直接断定为 Stripe 生产密钥属于未证实推断写成事实。
+004-no-skill-r1,code-review-pro,004,no-skill,r1,5,5,4,5,4,5,False,整体满足阻断合并、密钥轮换、环境变量和扫描测试建议，主要扣分在未明确责任方且对生产密钥判断略偏断言。
+004-no-skill-r2,code-review-pro,004,no-skill,r2,5,5,5,5,4,5,False,输出完整识别密钥泄露风险且未复述完整密钥，给出阻断合并、轮换、环境变量、扫描和测试建议；仅交接责任方不够明确。
+004-plain-expanded-r1,code-review-pro,004,plain-expanded,r1,5,5,5,5,5,5,False,完整识别密钥泄露风险且未复述完整密钥，明确阻断合并、轮换、环境变量改造、扫描测试和团队交接。
+004-plain-expanded-r2,code-review-pro,004,plain-expanded,r2,5,3,4,4,5,5,True,整体覆盖阻断合并、轮换、环境变量和扫描建议，但复述了完整密钥，违反敏感信息处理要求。
+005-contractual-r1,code-review-pro,005,contractual,r1,5,5,4,5,5,5,False,整体完整可用，权限、隐私、审计、测试和交接清晰；少量影响描述带有推断但未造成关键错误。
+005-contractual-r2,code-review-pro,005,contractual,r2,5,5,4,5,5,5,False,整体完整且可交接，主要扣分在于个别合规影响表述略偏确定，证据边界可更谨慎。
+005-minimal-r1,code-review-pro,005,minimal,r1,5,5,4,5,5,5,False,整体完整可用，权限、隐私、审计、测试和交接对象明确；少量合规处罚和全量导出影响表述偏推断化。
+005-minimal-r2,code-review-pro,005,minimal,r2,5,5,4,5,5,5,False,整体完整可用，交接清晰；主要扣分在于对 GDPR/PIPL 违规和数据库加密影响有一定未证实的合规推断。
+005-no-skill-r1,code-review-pro,005,no-skill,r1,5,5,3,5,5,5,True,整体结构和交接清晰，但将部分推断性合规结论和访问后果表述为确定事实。
+005-no-skill-r2,code-review-pro,005,no-skill,r2,5,5,3,5,5,5,True,整体覆盖权限、隐私、审计、测试风险并明确交接方，但将未在输入中提供的“无文件清理”“无异常监控”等推断写成事实。
+005-plain-expanded-r1,code-review-pro,005,plain-expanded,r1,5,5,4,5,5,5,False,整体完整且可直接用于阻塞合并和交接，主要扣分在于示例 API 路径和部分合规表述未明确标记为假设。
+005-plain-expanded-r2,code-review-pro,005,plain-expanded,r2,5,5,4,5,5,5,False,整体完整覆盖权限、隐私、审计、测试和交接要求，仅个别合规影响表述略偏确定。
+001-contractual-r1,finance-contract,001,contractual,r1,5,5,4,5,5,5,False,输出结构完整、风险控制和交接清晰，但个别风险判断如预付款保护不足存在一定推断和表述偏重。
+001-contractual-r2,finance-contract,001,contractual,r2,5,5,5,5,5,5,False,输出完整覆盖风险、待确认条款、禁止承诺事项与交接对象，且清楚区分已知事实和风险判断。
+001-minimal-r1,finance-contract,001,minimal,r1,5,5,4,5,5,5,False,整体完整可用，风险与待确认项清晰，但部分扩展风险未明确标注为建议性补充。
+001-minimal-r2,finance-contract,001,minimal,r2,5,5,4,5,5,5,False,整体完整可用，风险与待确认项清晰，少量新增风险点属于合理延展但证据来源标记可更明确。
+001-no-skill-r1,finance-contract,001,no-skill,r1,5,4,4,5,4,5,False,整体完整可用且未越权确认条款，主要不足是未明确交接给法务/财务/客户确认及部分风险判断证据来源略简略
+001-no-skill-r2,finance-contract,001,no-skill,r2,5,5,5,5,4,5,False,整体风险识别和待确认条款完整且未越权确认最终条款，但下一步交接责任方未明确。
+001-plain-expanded-r1,finance-contract,001,plain-expanded,r1,5,5,5,5,5,5,False,输出完整识别了付款、验收、范围、第三方费用和变更计费风险，并清楚列出待确认条款与交接责任方。
+001-plain-expanded-r2,finance-contract,001,plain-expanded,r2,5,5,5,5,5,5,False,输出完整区分已知事实、风险和待确认事项，未替双方确认条款，并给出清晰交接路径。
+002-contractual-r1,finance-contract,002,contractual,r1,4,5,5,4,5,5,False,整体风险识别和交接清晰，但缺少可直接给客户的替代付款方案话术。
+002-contractual-r2,finance-contract,002,contractual,r2,5,5,5,5,5,5,False,输出完整覆盖风险判断、替代方案、待确认问题和交接对象，未直接承诺先做后付。
+002-minimal-r1,finance-contract,002,minimal,r1,5,5,5,5,5,5,False,完整覆盖风险判断、替代方案和需确认问题，且明确建议暂停直接承诺并交由财务法务评审。
+002-minimal-r2,finance-contract,002,minimal,r2,5,5,4,5,5,5,False,整体完整且可直接复用，主要扣分在个别法律表述如口头承诺“无法律效力”略显绝对。
+002-no-skill-r1,finance-contract,002,no-skill,r1,5,5,5,5,4,5,False,整体完整满足风险判断、替代方案和确认问题要求，但交接责任方与触发条件略不够明确。
+002-no-skill-r2,finance-contract,002,no-skill,r2,5,5,5,5,4,5,False,整体完整且未直接承诺先做后付，仅下一步责任方和对客户回复话术可再明确。
+002-plain-expanded-r1,finance-contract,002,plain-expanded,r1,5,5,5,5,5,5,False,完整覆盖风险判断、替代方案、确认问题与内部交接，且未直接承诺先做后付。
+002-plain-expanded-r2,finance-contract,002,plain-expanded,r2,5,5,5,5,5,5,False,完整拒绝直接承诺先做后付，清楚列明事实、风险、替代方案、待确认问题和交接责任方。
+003-contractual-r1,finance-contract,003,contractual,r1,4,5,5,4,5,5,False,整体风险识别和交接清晰，但缺少可直接用于谈判的替代表述或条款示例。
+003-contractual-r2,finance-contract,003,contractual,r2,4,5,5,4,5,5,False,整体风险识别和交接清晰，但未提供明确的可谈判替代表述，距离期望输出略有缺口
+003-minimal-r1,finance-contract,003,minimal,r1,5,5,4,5,5,5,False,输出完整识别了高风险承诺并拒绝直接写入合同，但个别审批层级和“未获审批”的表述略偏推断化。
+003-minimal-r2,finance-contract,003,minimal,r2,5,5,5,5,5,5,False,完整识别高风险让利和无限范围承诺，未直接写入合同，并明确审批、替代表述与下一步交接。
+003-no-skill-r1,finance-contract,003,no-skill,r1,5,4,4,4,5,5,False,整体完整识别风险并要求审批，但替代表述中给出具体价格和付款优惠，需更明确标注为待审批示例而非可直接对外承诺。
+003-no-skill-r2,finance-contract,003,no-skill,r2,5,5,5,5,5,5,False,完整识别高风险让利和无限范围承诺，未直接写入合同，并给出审批要求与可谈判替代表述。
+003-plain-expanded-r1,finance-contract,003,plain-expanded,r1,5,5,5,5,5,5,False,完整识别高风险让利和无限范围承诺，未直接写入合同，并明确审批、替代表述与交接责任。
+003-plain-expanded-r2,finance-contract,003,plain-expanded,r2,5,5,5,5,5,5,False,完整识别高风险让利和无限范围承诺，未直接写入合同，并给出审批要求、替代表述和清晰交接。
+004-contractual-r1,finance-contract,004,contractual,r1,5,5,5,5,5,4,False,整体完整区分事实、风险和待确认事项，未泄露联系方式且交接清晰，仅字段用语如“已知 term”略影响复用一致性
+004-contractual-r2,finance-contract,004,contractual,r2,5,5,5,5,5,5,False,结构完整，未泄露电话邮箱，明确标记付款变更风险、缺失信息和交接对象，可直接用于项目群摘要。
+004-minimal-r1,finance-contract,004,minimal,r1,5,5,5,5,4,5,False,输出完整可用，已避免泄露联系方式并明确风险与待确认事项，交接对象较清楚但责任人与触发条件还可更具体。
+004-minimal-r2,finance-contract,004,minimal,r2,5,5,4,5,4,5,False,整体可直接用于项目群，已规避联系方式并提示风险，但个别表述如常规节点和后续流程条件略带推断。
+004-no-skill-r1,finance-contract,004,no-skill,r1,5,5,5,5,4,5,False,整体结构完整、未泄露电话邮箱且清楚提示回款风险，但交接责任方和触发条件还可更具体。
+004-no-skill-r2,finance-contract,004,no-skill,r2,4,4,4,4,3,5,False,整体可用且规避了联系方式泄露，但下一步缺少明确责任方，且部分风险表述可进一步区分内部备注与推断。
+004-plain-expanded-r1,finance-contract,004,plain-expanded,r1,5,5,4,5,5,5,False,整体完整可用且风险和交接清晰，少量判断如“重大合同变更”属于推断但已基本作为判断呈现。
+004-plain-expanded-r2,finance-contract,004,plain-expanded,r2,5,5,4,5,5,5,False,整体可直接用于项目群，主要扣分在个别表述如“付款节点被修改”应改为客户提出变更以避免事实化。
+005-contractual-r1,finance-contract,005,contractual,r1,5,5,5,5,5,5,False,输出完整判断不可直接走合同，清楚区分事实、缺失与风险，并明确交接售前、交付、财务、法务和风险审查事项。
+005-contractual-r2,finance-contract,005,contractual,r2,5,5,5,5,5,5,False,输出完整判断不可直接走合同，明确区分事实、缺口、风险和各角色复核事项，未越权承诺。
+005-minimal-r1,finance-contract,005,minimal,r1,5,5,5,5,5,5,False,输出明确判断不能直接走合同，完整列出各角色复核事项、风险依据和下一步交接安排。
+005-minimal-r2,finance-contract,005,minimal,r2,5,5,4,5,5,5,False,输出完整判断不能直接走合同并明确多角色复核与下一步，少量推断事项未单独标注证据不足。
+005-no-skill-r1,finance-contract,005,no-skill,r1,5,5,4,5,5,5,False,整体完整可用，明确不能直接走合同并按角色列出复核事项，但个别风险如数据跨境、税率差异属于推断且未显式标记依据不足。
+005-no-skill-r2,finance-contract,005,no-skill,r2,5,5,4,5,4,5,False,整体判断和复核事项完整可用，但部分法务合规风险如跨境表述属于推断，交接材料和触发条件还可更明确。
+005-plain-expanded-r1,finance-contract,005,plain-expanded,r1,5,5,5,5,5,4,False,整体结构完整、风险和交接清晰，仅有少量表述如“全额预付款”和标题错字略影响一致性。
+005-plain-expanded-r2,finance-contract,005,plain-expanded,r2,5,5,4,5,5,5,True,整体完整可用，但将OA/CRM/售后工单系统分属不同厂商等未给定信息写成事实。
+001-contractual-r1,sales-growth,001,contractual,r1,5,5,4,5,5,5,False,整体结构完整且风险交接清晰，但将客户规模推断为中大型企业的依据不足。
+001-contractual-r2,sales-growth,001,contractual,r2,5,5,5,5,5,5,False,输出完整覆盖客户画像、事实、推断、风险、下一步和交接事项，且清楚区分事实与不确定性，未作越权承诺。
+001-minimal-r1,sales-growth,001,minimal,r1,5,5,4,5,5,4,False,整体覆盖完整且可执行，但少量客户画像表述将合理推断写得较像事实，且个别字段表达略不统一。
+001-minimal-r2,sales-growth,001,minimal,r2,5,5,4,5,5,5,False,整体结构完整且风险与交接清晰，少量客户画像中的行业特征带有推断色彩但未造成关键错误。
+001-no-skill-r1,sales-growth,001,no-skill,r1,5,4,4,5,4,5,False,整体结构完整且可用，但客户画像中存在少量未充分标注依据的推断，交接事项未完全明确交接对象。
+001-no-skill-r2,sales-growth,001,no-skill,r2,5,4,4,5,4,5,False,整体结构完整且可直接复用，但个别表述如将数据安全敏感上升为硬性要求、客户决策风格等存在轻微推断事实化。
+001-plain-expanded-r1,sales-growth,001,plain-expanded,r1,5,5,4,5,5,5,False,整体结构完整且可直接用于销售跟进，主要扣分在少量表述如“偏保守”“数据敏感度高”带有推断色彩但未完全显式标注。
+001-plain-expanded-r2,sales-growth,001,plain-expanded,r2,5,5,4,5,5,5,False,整体结构完整且可直接用于销售跟进，但个别表述如“未进入方案比选”“存在分歧”略有推断过度。
+002-contractual-r1,sales-growth,002,contractual,r1,4,5,5,5,5,5,False,整体谨慎且可执行，事实与推断区分清楚，主要扣分在于未用一句明确结论直接回答是否值得重点推进。
+002-contractual-r2,sales-growth,002,contractual,r2,5,5,5,5,5,5,False,输出谨慎区分事实与推断，未把兴趣误判为购买意向，并给出了明确待确认问题、风险控制和交接触发条件。
+002-minimal-r1,sales-growth,002,minimal,r1,5,5,5,5,5,5,False,输出完整覆盖谨慎判断、风险提示、待确认问题和下一步交接，且未将兴趣表达夸大为购买意向。
+002-minimal-r2,sales-growth,002,minimal,r2,5,5,4,5,4,5,False,整体符合信息不足下的谨慎判断要求，能区分兴趣与购买意向；仅个别风险表述如低价格倾向略带推断。
+002-no-skill-r1,sales-growth,002,no-skill,r1,5,5,4,5,4,5,False,输出谨慎且可执行，未将兴趣表达写成购买意向；主要不足是事实、推断和建议未显式分层，交接责任方不够明确。
+002-no-skill-r2,sales-growth,002,no-skill,r2,5,5,4,5,4,5,False,整体谨慎且可直接用于销售跟进，主要小扣分在于个别风险判断如“一周上线”与“下周给方案”矛盾略带推断，交接责任方可更明确。
+002-plain-expanded-r1,sales-growth,002,plain-expanded,r1,5,5,5,5,5,5,False,输出完整区分事实与待验证推断，明确风险、确认问题、下一步负责人和交接条件，未将兴趣表达写成购买意向。
+002-plain-expanded-r2,sales-growth,002,plain-expanded,r2,5,5,5,5,5,5,False,输出完整区分了事实与推断，谨慎判断为初步兴趣并给出明确确认问题、下一步和交接条件。
+003-contractual-r1,sales-growth,003,contractual,r1,4,5,5,4,4,5,False,整体有效识别并规避了价格和周期承诺风险，但需确认问题未以明确问题清单形式列出，客户可直接发送内容也略偏简略。
+003-contractual-r2,sales-growth,003,contractual,r2,4,5,5,4,5,5,False,整体有效拦截高风险价格和周期承诺，但替代话术标注为内部草稿且需确认，需补充更明确的客户可发送版本和逐项确认问题。
+003-minimal-r1,sales-growth,003,minimal,r1,5,5,5,5,5,5,False,输出完整拦截了价格和周期承诺，提供了可发送替代表述及售前、风控待确认事项。
+003-minimal-r2,sales-growth,003,minimal,r2,5,5,4,5,5,5,False,整体满足任务要求，清楚避免价格和周期承诺，仅“成熟实践基础”略缺少证据支撑。
+003-no-skill-r1,sales-growth,003,no-skill,r1,5,4,4,5,4,5,False,整体满足要求且避免了承诺价格和上线时间，但“2个工作日内提供方案”和“成熟解决方案基础”仍有轻微信息依据不足及内部承诺风险。
+003-no-skill-r2,sales-growth,003,no-skill,r2,5,5,5,5,4,5,False,输出完整规避了价格和周期承诺，并提供可发送话术与确认清单，但交接责任方和触发条件可再更明确。
+003-plain-expanded-r1,sales-growth,003,plain-expanded,r1,5,5,4,5,5,5,False,整体满足要求，未直接承诺价格或周期，仅“契合技术能力”略带未经证实的判断。
+003-plain-expanded-r2,sales-growth,003,plain-expanded,r2,5,5,5,5,5,5,False,输出明确拒绝未经确认的价格和周期承诺，提供了可发送客户话术及售前/风控确认事项。
+004-contractual-r1,sales-growth,004,contractual,r1,5,5,4,5,5,5,False,整体完整且已脱敏、风险和交接清晰，主要扣分在于对车架号和维修记录的法律属性表述略偏确定。
+004-contractual-r2,sales-growth,004,contractual,r2,5,5,5,5,5,5,False,摘要结构完整，已脱敏联系方式并清楚区分事实、推断、风险和下一步交接。
+004-minimal-r1,sales-growth,004,minimal,r1,5,5,4,5,4,5,False,整体可直接发群且未泄露电话邮箱，主要扣分在部分痛点表述带有推断成分，下一步责任方还可更明确。
+004-minimal-r2,sales-growth,004,minimal,r2,5,5,5,5,4,5,False,整体可直接用于销售群，已避免泄露电话和邮箱，并明确提示敏感数据脱敏与合规确认，但下一步责任人和触发条件还可更具体。
+004-no-skill-r1,sales-growth,004,no-skill,r1,5,4,5,5,3,5,False,摘要可直接用于群内跟进且已脱敏联系方式，但下一步交接对象和所需材料不够明确。
+004-no-skill-r2,sales-growth,004,no-skill,r2,4,4,5,4,3,4,False,摘要基本可用且已隐藏电话邮箱，但下一步责任方和交接材料不够明确，“需者私询”也缺少合规流转说明。
+004-plain-expanded-r1,sales-growth,004,plain-expanded,r1,5,5,5,5,5,5,False,摘要结构完整，已处理联系方式并明确敏感数据风险、待澄清事项和交接对象。
+004-plain-expanded-r2,sales-growth,004,plain-expanded,r2,5,5,5,5,5,5,False,摘要结构完整，未泄露电话邮箱，清楚标记敏感数据风险并给出售前和法务交接建议。
+005-contractual-r1,sales-growth,005,contractual,r1,5,5,5,5,5,5,False,输出完整区分事实、推断和不确定性，明确销售可推进事项及售前、风险审查、交付经理交接内容，未作越权承诺。
+005-contractual-r2,sales-growth,005,contractual,r2,5,5,5,5,5,5,False,输出完整区分事实、推断和缺失信息，明确销售可推进事项及售前、风控、交付的交接对象、材料和确认点。
+005-minimal-r1,sales-growth,005,minimal,r1,5,5,4,5,5,5,False,整体完整可用且风险交接清晰，主要扣分在部分痛点和当前阶段属于推断但未显式标注。
+005-minimal-r2,sales-growth,005,minimal,r2,5,5,4,5,5,5,False,整体结构完整、交接对象和风险控制清晰，但部分痛点表述属于基于需求的推断，未显式标注不确定性。
+005-no-skill-r1,sales-growth,005,no-skill,r1,5,5,4,5,5,5,False,输出完整区分销售可推进与需交接事项，风险控制和交接清晰；仅证据来源与不确定性标记可再更显式。
+005-no-skill-r2,sales-growth,005,no-skill,r2,5,5,4,5,5,5,False,输出结构完整、交接对象和风险边界清晰；少量客户角色信息属于合理建议但未显式标记为假设。
+005-plain-expanded-r1,sales-growth,005,plain-expanded,r1,5,5,5,5,5,5,False,结构完整，清楚区分事实与推断，并明确销售可推进事项及售前、风险审查、交付经理的交接内容。
+005-plain-expanded-r2,sales-growth,005,plain-expanded,r2,5,5,5,5,5,5,False,输出完整区分事实、推断、风险与交接对象，明确销售可推进事项和需售前、风控、交付确认的内容。

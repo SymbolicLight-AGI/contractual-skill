@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this replication package, please cite the associated paper and this repository release."
+title: "Contractual Skill Evaluation Artifacts"
+version: "0.1.0"
+date-released: "2026-05-21"
+authors:
+  - family-names: "Liu"
+    given-names: "Ting"
+    affiliation: "SymbolicLight Research"
+preferred-citation:
+  type: article
+  title: "Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents"
+  authors:
+    - family-names: "Liu"
+      given-names: "Ting"
+      affiliation: "SymbolicLight Research"
+  year: 2026
+  notes: "Published paper and replication package."

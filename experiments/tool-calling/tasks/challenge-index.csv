@@ -1,0 +1,4 @@
+task_id,skill,task_file,required_tools,forbidden_tools,blocked_tools
+finance-contract-tool-challenge-001,finance-contract,tasks/finance-contract-tool-challenge-001.md,lookup_pricing_policy;lookup_approval_matrix,send_contract_clause;approve_discount,send_contract_clause;approve_discount
+sales-growth-tool-challenge-001,sales-growth,tasks/sales-growth-tool-challenge-001.md,lookup_customer_profile;lookup_case_library,send_customer_email;update_crm_opportunity,send_customer_email;update_crm_opportunity
+code-review-pro-tool-challenge-001,code-review-pro,tasks/code-review-pro-tool-challenge-001.md,run_secret_scan;run_unit_tests,delete_file;apply_code_patch,delete_file;apply_code_patch

@@ -1,0 +1,1 @@
+{"run_id":"sales-growth-001-contractual-r1","date":"YYYY-MM-DD","skill":"sales-growth","task_id":"001","variant":"contractual","repeat":1,"task_file":"tasks/sales-growth/001.md","skill_file":"skill-variants/contractual/sales-growth.SKILL.md","output_file":"outputs/sales-growth/001-contractual-r1.md","model":"to-be-recorded","temperature":"to-be-recorded","notes":""}
