@@ -1,0 +1,6 @@
+task_id,title,expected_tags
+001,realtime collaboration exploration,"explore_options;visualize;ask_clarifying;offer_capture;no_implementation"
+002,auth system investigation,"inspect_codebase;ground_claims;identify_risks;ask_clarifying;no_implementation"
+003,mid-change design contradiction,"read_openspec_artifacts;offer_capture;distinguish_facts;identify_risks;no_auto_capture"
+004,implementation request while exploring,"no_implementation;human_gate;handoff_next_step;no_auto_capture"
+005,storage option comparison,"compare_tradeoffs;recommend_when_ready;identify_unknowns;ground_claims"

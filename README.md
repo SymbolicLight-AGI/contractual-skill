@@ -12,6 +12,7 @@ It contains synthetic tasks, skill variants, model outputs, model-judge scoring 
 | --- | --- |
 | `experiments/text-generation/` | Synthetic text-generation tasks, prompts, skill variants, model outputs, scoring scripts, and scoring records. |
 | `experiments/tool-calling/` | Offline simulated tool-calling challenge tasks, transcripts, scoring scripts, and scoring records. |
+| `experiments/openspec-explore/` | Small old-vs-contractual comparison for the OpenSpec explore Skill. |
 | `templates/` | Reusable English and Chinese contractual Skill templates for adapting the paper's structure to new domains. |
 | `docs/` | Reproducibility notes, data statement, and repository file map. |
 
@@ -19,6 +20,7 @@ It contains synthetic tasks, skill variants, model outputs, model-judge scoring 
 
 - Text-generation experiment: 8 generation models, 3 skill families, 15 synthetic tasks, 4 instruction conditions, 2 repeats, 960 model outputs, and 1680 cross-judge score records.
 - Tool-calling challenge: 8 generation models and 192 offline simulated tool-call challenge records.
+- OpenSpec explore Skill comparison: 2 Skill variants, 5 explore-mode tasks, 10 generated prompts, and deterministic contract-affordance scores.
 - No real customer data, real contract data, real credentials, or production-system calls are included.
 
 ## Template
@@ -51,6 +53,13 @@ Recompute tool-calling model comparison:
 .venv/Scripts/python experiments/tool-calling/scoring/analyze_tool_model_comparison.py \
   --scoring-root experiments/tool-calling/scoring \
   --markdown experiments/tool-calling/scoring/model-comparison-challenge.zh-CN.md
+```
+
+Recompute the OpenSpec explore Skill comparison:
+
+```bash
+.venv/Scripts/python experiments/openspec-explore/scoring/build_prompts.py
+.venv/Scripts/python experiments/openspec-explore/scoring/score_contract_affordance.py
 ```
 
 The included analysis scripts operate on the saved outputs and scoring CSV/JSONL files. They do not require API keys. Rerunning model generation or model-judge scoring would require external model API access and may produce different results because model versions can change.

@@ -29,6 +29,15 @@ The text experiment should contain 960 output-level units and 1680 judge records
 
 The tool-calling challenge should contain 192 saved challenge records.
 
+## Recompute OpenSpec Explore Skill Comparison
+
+```bash
+.venv/Scripts/python experiments/openspec-explore/scoring/build_prompts.py
+.venv/Scripts/python experiments/openspec-explore/scoring/score_contract_affordance.py
+```
+
+This comparison should contain 10 generated prompts and 10 contract-affordance score rows across two Skill variants and five tasks. It does not require an API key.
+
 ## Rerunning Model Calls
 
 The package includes saved outputs and scoring records. It intentionally does not include API keys. Rerunning generation or scoring requires a compatible model API and may not reproduce the exact saved outputs because model versions and provider behavior can change.

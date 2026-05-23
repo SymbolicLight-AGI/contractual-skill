@@ -9,6 +9,7 @@ This replication package contains synthetic experimental materials for evaluatin
 - Saved model outputs from the text-generation experiment.
 - Saved model-judge scoring records.
 - Saved offline simulated tool-calling transcripts and scoring records.
+- A small OpenSpec explore Skill comparison containing one original public Skill file, one contractual rewrite, five synthetic explore-mode tasks, generated prompts, and deterministic contract-affordance scores.
 - Scripts used to aggregate scores.
 
 ## Excluded Data
@@ -31,3 +32,5 @@ The included model outputs and model-judge scores are saved records from runs co
 ## Evaluation Caveat
 
 The scores are first-pass model-assisted evaluations, not expert human ratings. They are suitable for reproducing the paper's reported analysis, but should not be treated as a universal benchmark for model capability.
+
+The OpenSpec explore Skill comparison is a deterministic contract-affordance check. It measures whether the Skill text explicitly exposes task-relevant contract signals, not whether a live model will always follow those signals.

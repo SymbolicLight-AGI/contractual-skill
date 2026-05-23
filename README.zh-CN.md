@@ -8,6 +8,7 @@
 | --- | --- |
 | `experiments/text-generation/` | 纯文本实验的合成任务、prompt、Skill 变体、模型输出、评分脚本和评分记录。 |
 | `experiments/tool-calling/` | 离线模拟工具调用 challenge 的任务、transcripts、评分脚本和评分记录。 |
+| `experiments/openspec-explore/` | OpenSpec explore Skill 的旧版与契约化版本小样本对照。 |
 | `templates/` | 可复用的中英文契约化 Skill 模板，用于把论文中的结构迁移到新领域。 |
 | `docs/` | 复现说明、数据说明和文件地图。 |
 
@@ -15,6 +16,7 @@
 
 - 纯文本实验：8 个生成模型、3 类 Skill、15 个合成任务、4 种指令条件、2 次重复，共 960 个模型输出和 1680 条交叉评分记录。
 - 工具调用实验：8 个生成模型，共 192 条离线模拟工具调用 challenge 记录。
+- OpenSpec explore Skill 对照：2 个 Skill 版本、5 个探索模式任务、10 个生成 prompt，以及确定性契约覆盖评分。
 - 不包含真实客户数据、真实合同、真实凭据或真实生产系统调用。
 
 ## 模板
@@ -33,6 +35,8 @@ python -m venv .venv
 .venv/Scripts/python -m pip install -r requirements.txt
 .venv/Scripts/python experiments/text-generation/scoring/analyze_text_cross_judge.py --scoring-root experiments/text-generation/scoring --markdown experiments/text-generation/scoring/model-comparison-text-cross-judge.zh-CN.md
 .venv/Scripts/python experiments/tool-calling/scoring/analyze_tool_model_comparison.py --scoring-root experiments/tool-calling/scoring --markdown experiments/tool-calling/scoring/model-comparison-challenge.zh-CN.md
+.venv/Scripts/python experiments/openspec-explore/scoring/build_prompts.py
+.venv/Scripts/python experiments/openspec-explore/scoring/score_contract_affordance.py
 ```
 
 如需重新跑模型生成或模型评分，需要另外配置兼容 OpenAI Chat Completions 的模型 API。请在本机 shell 中设置 `MODEL_BASE_URL` 和 `MODEL_API_KEY`，或通过 `--base-url` 显式传入服务地址；不要提交 API key 或 `.env` 文件。由于模型版本可能变化，重新运行结果不保证与本文完全一致。
