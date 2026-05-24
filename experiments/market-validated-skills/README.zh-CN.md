@@ -71,7 +71,7 @@ python experiments/market-validated-skills/scoring/build_prompts.py
 重新运行模型输出需要在本机 shell 设置：
 
 ```bash
-$env:MODEL_BASE_URL="https://www.autodl.art/api/v1"
+$env:MODEL_BASE_URL="https://your-openai-compatible-endpoint/v1"
 $env:MODEL_API_KEY="your_api_key"
 ```
 
