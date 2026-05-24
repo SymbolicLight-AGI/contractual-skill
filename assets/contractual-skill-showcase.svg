@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="116" viewBox="0 0 430 116" role="img" aria-labelledby="title desc">
+  <title id="title">Contractual Skill showcase badge</title>
+  <desc id="desc">A purple showcase badge for the Contractual Skill open framework.</desc>
+  <defs>
+    <filter id="softShadow" x="-20%" y="-30%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#3b2179" flood-opacity="0.18"/>
+    </filter>
+    <linearGradient id="badgeFill" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fbf7ff"/>
+      <stop offset="100%" stop-color="#f0e8ff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#6f42c1"/>
+      <stop offset="100%" stop-color="#2f8f66"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="430" height="116" rx="24" fill="#ffffff"/>
+  <g filter="url(#softShadow)">
+    <rect x="18" y="16" width="394" height="84" rx="18" fill="url(#badgeFill)" stroke="#6f42c1" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(48 36)" fill="none" stroke="#6f42c1" stroke-width="2" stroke-linecap="round">
+    <path d="M22 6 C15 13 15 27 22 34"/>
+    <path d="M14 12 C9 18 9 24 14 30"/>
+    <path d="M30 6 C37 13 37 27 30 34"/>
+    <path d="M38 12 C43 18 43 24 38 30"/>
+    <circle cx="26" cy="20" r="8" fill="#ffffff"/>
+    <path d="M22 20 L25 23 L31 16"/>
+  </g>
+
+  <text x="120" y="42" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="1.6" fill="#6f42c1">OPEN FRAMEWORK</text>
+  <text x="120" y="68" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="850" fill="#24114f">Contractual Skill</text>
+  <text x="120" y="88" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#5d5570">Templates · Experiments · Evaluation</text>
+
+  <rect x="314" y="36" width="66" height="28" rx="14" fill="url(#accent)"/>
+  <text x="347" y="55" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="800" fill="#ffffff">SKILL.md</text>
+</svg>

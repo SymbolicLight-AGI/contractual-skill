@@ -1,12 +1,40 @@
-# Contractual Skill
+<div align="center">
+
+<h1>Contractual Skill</h1>
+
+<p><strong>Contract-style AI agent skills for safer tool use, clearer evaluation, and enterprise governance.</strong></p>
+
+<p><em>Works with Codex, Claude Code, Cursor, Copilot, Gemini CLI, and any <code>SKILL.md</code>-style agent runtime.</em></p>
+
+<p>
+  <img src="assets/contractual-skill-showcase.svg" width="430" alt="Contractual Skill open framework badge" />
+</p>
+
+<p>
+  <a href="README.md">English</a> |
+  <a href="README.zh-CN.md">简体中文</a> |
+  <a href="templates/">Templates</a> |
+  <a href="experiments/">Experiments</a> |
+  <a href="#paper">Paper</a>
+</p>
+
+<p>
+  <a href="#start-here"><img alt="Quick Start" src="https://img.shields.io/badge/Quick%20Start-Templates-0b83c9?style=flat-square" /></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-d4b000?style=flat-square" /></a>
+  <a href="templates/contractual-skill.SKILL.md"><img alt="Template: SKILL.md" src="https://img.shields.io/badge/SKILL.md-Contractual-6f42c1?style=flat-square" /></a>
+  <a href="experiments/"><img alt="Experiments" src="https://img.shields.io/badge/Experiments-1%2C152%20outputs-157347?style=flat-square" /></a>
+  <a href="CITATION.cff"><img alt="Citation metadata" src="https://img.shields.io/badge/Citation-CFF-59636e?style=flat-square" /></a>
+</p>
+
+</div>
+
+---
 
 Contractual Skill is an open framework for writing AI agent skills as explicit task contracts.
 
 It turns implicit prompt instructions into inspectable fields such as goals, audience, context, permissions, constraints, evidence requirements, output format, quality bars, and verification criteria. The goal is to make agent behavior easier to reuse, evaluate, audit, and govern, especially in enterprise workflows where skills call tools, handle incomplete evidence, or operate under safety constraints.
 
-This repository provides reusable templates, experimental materials, model outputs, scoring records, and analysis scripts behind the paper:
-
-**Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents**
+This repository provides reusable templates, experimental materials, model outputs, scoring records, and analysis scripts behind the paper **Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents**.
 
 ![Contractual Skill framework overview](assets/contractual-skill-overview.svg)
 

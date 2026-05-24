@@ -1,12 +1,40 @@
-# Contractual Skill：契约化 AI Agent Skill 框架
+<div align="center">
+
+<h1>Contractual Skill</h1>
+
+<p><strong>面向企业 AI Agent 的契约化 Skill 框架。</strong></p>
+
+<p><em>把自由文本 Skill 改写成可检查、可评估、可治理的任务契约。</em></p>
+
+<p>
+  <img src="assets/contractual-skill-showcase.svg" width="430" alt="Contractual Skill 开源框架徽章" />
+</p>
+
+<p>
+  <a href="README.md">English</a> |
+  <a href="README.zh-CN.md">简体中文</a> |
+  <a href="templates/">模板</a> |
+  <a href="experiments/">实验</a> |
+  <a href="#论文">论文</a>
+</p>
+
+<p>
+  <a href="#快速开始"><img alt="快速开始" src="https://img.shields.io/badge/Quick%20Start-%E6%A8%A1%E6%9D%BF-0b83c9?style=flat-square" /></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-d4b000?style=flat-square" /></a>
+  <a href="templates/contractual-skill.zh-CN.SKILL.md"><img alt="契约化 Skill 模板" src="https://img.shields.io/badge/SKILL.md-%E5%A5%91%E7%BA%A6%E5%8C%96-6f42c1?style=flat-square" /></a>
+  <a href="experiments/"><img alt="实验数据" src="https://img.shields.io/badge/Experiments-1%2C152%20outputs-157347?style=flat-square" /></a>
+  <a href="CITATION.cff"><img alt="引用信息" src="https://img.shields.io/badge/Citation-CFF-59636e?style=flat-square" /></a>
+</p>
+
+</div>
+
+---
 
 Contractual Skill 是一个用于编写 AI Agent Skill 的开源契约化框架。
 
 它把原本隐含在自然语言 prompt 里的任务目标、受众、上下文、权限、约束、证据要求、输出格式、质量标准和验证条件显式写出来，让 Skill 更容易复用、评估、审计和治理。这个结构尤其适合企业 Agent 场景：例如工具调用、业务流程、权限边界、高风险请求、证据不足和人工确认。
 
-本仓库提供可复用模板、实验材料、模型输出、评分记录和分析脚本，并支撑论文：
-
-**Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents**
+本仓库提供可复用模板、实验材料、模型输出、评分记录和分析脚本，并支撑论文 **Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents**。
 
 ![Contractual Skill framework overview](assets/contractual-skill-overview.svg)
 
