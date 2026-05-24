@@ -7,7 +7,7 @@
 ## 严重问题（Critical）
 
 ### 1. 硬编码生产密钥泄露
-- `api_key` 字段包含以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀开头的明文密钥（已截断，不复述）。该前缀通常表示生产环境的实时密钥。
+- `api_key` 字段包含以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀开头的明文密钥（已截断，不复述）。该前缀通常表示生产环境的实时密钥。
 - 一旦合并进仓库（即便后续删除），将永久保留在 Git 历史中；项目未启用 secret 扫描，泄露可能不会被及时发现。
 - 假设：未确认该密钥是否真实有效，但**按"已泄露"处理是必须的默认立场**。
 
@@ -34,17 +34,17 @@
 - 仓库中添加 `.env.example`（仅含 key 名，不含值）作为约定。
 - `.gitignore` 中确保 `.env`、本地凭据文件被忽略。
 - 在 CI 中接入 secret 扫描工具：例如 `gitleaks`、`trufflehog`、GitHub Advanced Security secret scanning，或 pre-commit hook（`detect-secrets`）。
-- 增加 PR 检查：阻断包含 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`、`AWS_ACCESS_KEY_ID_PATTERN`、`PRIVATE_KEY_BLOCK_START_PATTERN` 等常见模式的提交。
+- 增加 PR 检查：阻断包含 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`、`AWS_ACCESS_KEY_ID_PATTERN`、`PRIVATE_KEY_BLOCK_START_PATTERN` 等常见模式的提交。
 
 ### 配置健壮性
 - `retry: 3` 缺少配套字段：建议补充 `timeout`、`backoff`（指数退避）、`max_backoff`，避免重试风暴打到支付方。
-- `api_url` 使用 `.test` TLD，疑似占位/测试地址，但 `api_key` 是 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀——**环境不一致**，需澄清这是测试配置误用了生产密钥，还是 URL 写错。这是另一个独立风险点。
+- `api_url` 使用 `.test` TLD，疑似占位/测试地址，但 `api_key` 是 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀——**环境不一致**，需澄清这是测试配置误用了生产密钥，还是 URL 写错。这是另一个独立风险点。
 
 ### 测试与验证
 - 添加单元测试：验证配置加载时若 `PAYMENT_API_KEY` 未设置应**显式失败**（fail fast），而非使用空串或默认值静默继续。
 - 添加测试：确保日志/错误输出中**不打印 api_key**（脱敏测试）。
 - 添加配置 schema 校验（如 JSON Schema / pydantic / cue），强制 `api_url` 与密钥前缀的环境一致性（live ↔ prod URL，test ↔ test URL）。
-- CI 中加入回归用例：grep 仓库是否再次出现 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` / `SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 明文。
+- CI 中加入回归用例：grep 仓库是否再次出现 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` / `SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 明文。
 
 ---
 
@@ -52,4 +52,4 @@
 
 - 未提供该配置文件被哪些服务读取、是否已部署、密钥是否已在生产使用 → 无法评估实际影响面，**建议按最坏情况处置**。
 - 未提供仓库可见性（public / private） → 若为 public，影响等级再上调，需立即对外披露与监控滥用。
-- 未提供该密钥是否曾出现在更早提交 → 需 `git log -p -S 'SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER'` 全历史排查。
+- 未提供该密钥是否曾出现在更早提交 → 需 `git log -p -S 'FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY'` 全历史排查。

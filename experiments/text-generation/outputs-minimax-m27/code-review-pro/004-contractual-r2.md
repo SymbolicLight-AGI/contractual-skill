@@ -19,13 +19,13 @@
 | 严重程度 | **P0 - 必须修复** |
 
 ```yaml
-api_key: "SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER"  # 发现明文密钥
+api_key: "FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY"  # 发现明文密钥
 ```
 
 **问题**：
 1. 生产密钥以明文形式存储于仓库配置中
 2. 项目无 secret 扫描机制，密钥已暴露于版本历史
-3. 密钥类型为 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`，表明为生产环境密钥
+3. 密钥类型为 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`，表明为生产环境密钥
 
 **建议操作**：
 1. **立即阻断合并** — 此配置不得合入主分支
@@ -43,7 +43,7 @@ api_key: "SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER"  # 发现明文密钥
 | **合规风险** | 违反 PCI-DSS 等安全标准 |
 | **攻击面** | 所有能访问仓库的人员均已获取密钥 |
 
-**Risk: 极高** — `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀明确标识生产密钥，一旦泄露必须视为已失陷。
+**Risk: 极高** — `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀明确标识生产密钥，一旦泄露必须视为已失陷。
 
 ---
 
@@ -86,7 +86,7 @@ api_key: "SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER"  # 发现明文密钥
 ### 完成前自检
 
 - [x] 发现的问题有代码/上下文支持
-- [x] 未复述完整密钥（使用 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 脱敏）
+- [x] 未复述完整密钥（使用 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 脱敏）
 - [x] 明确标注不确定性（密钥轮换状态未知）
 - [x] 测试建议与风险等级匹配
 - [x] 安全/后端/产品交接明确

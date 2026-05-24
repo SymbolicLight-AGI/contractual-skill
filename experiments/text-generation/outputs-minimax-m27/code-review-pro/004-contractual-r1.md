@@ -8,7 +8,7 @@
 
 ### 1. 密钥泄露 (Severity: Critical)
 
-- **Finding**: `api_key: "SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER"` 是支付平台的 live 密钥，直接明文写在配置文件中并提交到仓库。
+- **Finding**: `api_key: "FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY"` 是支付平台的 live 密钥，直接明文写在配置文件中并提交到仓库。
 - **Risk**: 密钥一旦进入 git 历史，即使后续删除仍可被任何人通过 `git log` 或第三方平台获取，导致支付账户被非法使用或产生财务损失。
 - **Impact**: 该密钥在 `git history` 中永久留存，需立即轮换。
 
@@ -64,7 +64,7 @@
 
 ## 完成前自检
 
-- [x] 未在输出中复述完整密钥（仅保留格式 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`）
+- [x] 未在输出中复述完整密钥（仅保留格式 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`）
 - [x] 明确指出阻断合并
 - [x] 提供了密钥轮换建议
 - [x] 提供了环境变量替代方案

@@ -4,7 +4,7 @@
 
 **密钥泄露 (P0 - 阻断合并)**
 
-- `api_key` 字段包含有效密钥（Stripe live 密钥 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER****`），已明文硬编码并提交至仓库
+- `api_key` 字段包含有效密钥（Stripe live 密钥 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY****`），已明文硬编码并提交至仓库
 - 即使后续删除该配置，密钥仍存于 Git 历史中
 - 项目无 secret 扫描机制，无法预防此类泄露
 

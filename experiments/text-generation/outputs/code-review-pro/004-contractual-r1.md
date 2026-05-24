@@ -9,11 +9,11 @@
 ```yaml
 payment:
   api_url: "https://payments.example.test"
-  api_key: "SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER"
+  api_key: "FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY"
   retry: 3
 ```
 
-- `api_key` 字段包含以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头的密钥样式值，疑似 live/生产级支付服务密钥。
+- `api_key` 字段包含以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头的密钥样式值，疑似 live/生产级支付服务密钥。
 - 该配置被提交到仓库。
 - 背景明确说明项目没有 secret 扫描。
 
@@ -59,7 +59,7 @@ payment:
 
 扫描规则应至少覆盖：
 
-- `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 类支付密钥；
+- `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 类支付密钥；
 - API key；
 - token；
 - private key；
@@ -81,7 +81,7 @@ payment:
 
 ## 不确定性
 
-- Uncertainty：无法确认该 `api_key` 是否真实有效，但其格式和 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀足以按高风险 secret 处理。
+- Uncertainty：无法确认该 `api_key` 是否真实有效，但其格式和 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀足以按高风险 secret 处理。
 - Uncertainty：无法确认仓库是否公开、是否已有 fork、是否已进入 CI/CD 日志或制品缓存。
 - Uncertainty：无法确认支付服务权限范围，需要由支付/安全负责人确认该密钥可执行哪些操作。
 

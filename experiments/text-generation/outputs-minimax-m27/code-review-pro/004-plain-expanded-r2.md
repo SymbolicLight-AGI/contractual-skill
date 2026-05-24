@@ -5,7 +5,7 @@
 
 | # | Finding | Severity |
 |---|---------|----------|
-| 1 | `api_key` 明文保存在代码库中（`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`），已提交且无自动扫描。 | **Critical** |
+| 1 | `api_key` 明文保存在代码库中（`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`），已提交且无自动扫描。 | **Critical** |
 | 2 | 使用硬编码的 live 密钥，任何拥有仓库读取权限的人均可获取并滥用。 | **Critical** |
 | 3 | 缺少对凭证的访问控制和轮换机制，密钥泄露后难以追溯。 | **High** |
 | 4 | 没有 CI/预提交钩子进行 secret 检测，易将敏感信息误入主分支。 | **High** |
@@ -18,7 +18,7 @@
 
 **Test Advice**  
 
-- **静态扫描**：在 CI 中加入 TruffleHog、Gitleaks 或 GitGuardian，确保任何新提交若出现 `api_key`、`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER*` 等模式即报错。  
+- **静态扫描**：在 CI 中加入 TruffleHog、Gitleaks 或 GitGuardian，确保任何新提交若出现 `api_key`、`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY*` 等模式即报错。  
 - **集成测试**：使用环境变量注入伪造密钥，验证支付模块在凭证缺失/错误时的错误处理。  
 - **回归测试**：确认密钥不再出现在版本历史和构建产物中。  
 
@@ -31,7 +31,7 @@
 
 | Owner | Responsibility |
 |-------|----------------|
-| 安全团队 | 立即轮换 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`；审计日志确认是否被滥用。 |
+| 安全团队 | 立即轮换 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`；审计日志确认是否被滥用。 |
 | DevOps / 平台工程 | 将 `api_key` 迁移至 Vault、AWS Secrets Manager 或环境变量；配置 CI 扫描。 |
 | 后端团队 | 修改代码，使用 `os.getenv('PAYMENT_API_KEY')`；移除硬编码。 |
 | 产品/项目管理 | 建立凭证管理规范并在代码审查中强制执行。 |

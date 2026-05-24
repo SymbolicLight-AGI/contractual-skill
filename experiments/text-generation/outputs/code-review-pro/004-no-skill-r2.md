@@ -1,6 +1,6 @@
 不能合并。
 
-发现配置中疑似提交了支付服务的真实 API Key（形如 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`），属于高风险密钥泄露。即使仓库是私有的，也应视为已泄露处理。
+发现配置中疑似提交了支付服务的真实 API Key（形如 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`），属于高风险密钥泄露。即使仓库是私有的，也应视为已泄露处理。
 
 建议处理：
 
@@ -39,6 +39,6 @@
 
 6. **补充配置测试/校验**
    - 增加测试或校验，确保配置文件中不包含明文密钥。
-   - 可在 CI 中阻止出现类似 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`、`api_key` 明文值等高风险模式。
+   - 可在 CI 中阻止出现类似 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`、`api_key` 明文值等高风险模式。
 
 结论：该配置存在密钥泄露风险，必须移除明文密钥并完成密钥轮换与扫描机制补充后，才能重新评估合并。

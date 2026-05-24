@@ -6,7 +6,7 @@
 
 配置中包含 `payment.api_key`，格式看起来像 live/生产环境密钥，且已直接写入 YAML 配置文件中。密钥值不应提交到代码仓库。
 
-示例中密钥前缀为 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`，这里不复述完整密钥。
+示例中密钥前缀为 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`，这里不复述完整密钥。
 
 ### 影响
 
@@ -45,7 +45,7 @@
 
 4. **补充 secret 扫描**
    - 在本地 pre-commit、CI 流程和仓库平台中启用 secret scanning。
-   - 扫描规则应覆盖常见 API key、`SYNTHETIC_PAYMENT_SECRET_PREFIX` 类密钥、支付服务密钥等。
+   - 扫描规则应覆盖常见 API key、`FAKE_PAYMENT_TOKEN_PREFIX_FOR_SYNTHETIC_TEST_ONLY` 类密钥、支付服务密钥等。
    - CI 中发现疑似密钥应直接失败，阻止合并。
 
 ## 测试与验证建议

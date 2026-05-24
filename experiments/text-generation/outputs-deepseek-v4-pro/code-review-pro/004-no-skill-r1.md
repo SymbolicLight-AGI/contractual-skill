@@ -1,14 +1,14 @@
 # 密钥泄露风险审查结果
 
 ## 风险识别
-配置中硬编码了生产环境支付服务的 API 密钥（`api_key` 字段，以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头），存在真实密钥意外提交到仓库的风险。该密钥未脱敏，且项目未启用 secret 扫描，无法自动拦截泄露。
+配置中硬编码了生产环境支付服务的 API 密钥（`api_key` 字段，以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头），存在真实密钥意外提交到仓库的风险。该密钥未脱敏，且项目未启用 secret 扫描，无法自动拦截泄露。
 
 ## 阻断建议
 - 立即阻断该合并请求（hold merge），禁止将有明文密钥的配置合入主线。
 - 将当前提交标记为敏感，避免被进一步分发。
 
 ## 密钥轮换
-- 联系支付服务管理方，于服务端吊销泄露的 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 密钥。
+- 联系支付服务管理方，于服务端吊销泄露的 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 密钥。
 - 生成新密钥，确保旧密钥完全失效，避免已被暴露的凭据被恶意使用。
 
 ## 配置修改方案

@@ -1,7 +1,7 @@
 **审查结果：不能合并。**
 
 **风险提示：**
-发现严重的安全风险：配置中存在硬编码的生产环境 API 密钥（`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER***`）泄露。
+发现严重的安全风险：配置中存在硬编码的生产环境 API 密钥（`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY***`）泄露。
 
 **修复建议：**
 1. **阻断合并**：立即拒绝该提交的合并请求。

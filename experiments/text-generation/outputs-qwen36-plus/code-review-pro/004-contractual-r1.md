@@ -2,7 +2,7 @@
 **阻断合并**。该配置存在严重的安全泄露风险，硬编码的生产级支付密钥已直接暴露于版本控制系统中，且项目缺乏自动化拦截机制。必须在完成密钥轮换、配置重构与安全扫描接入后，方可重新评估合并。
 
 ## 主要问题
-- **Finding:** `payment.api_key` 字段硬编码了生产环境密钥（以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头），违反安全基线与配置管理规范。
+- **Finding:** `payment.api_key` 字段硬编码了生产环境密钥（以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头），违反安全基线与配置管理规范。
 - **Finding:** 配置未采用环境变量、密钥管理服务或加密存储方案，直接以明文形式提交至代码仓库。
 - **Finding:** 背景明确指出项目未启用 secret 扫描，导致此类高危提交无法在 CI/CD 阶段被自动拦截。
 
@@ -12,7 +12,7 @@
 - **Risk:** 若该配置被误用于测试或预发环境，可能污染生产数据或触发真实扣款。
 
 ## 测试建议
-- **Test advice:** 在 CI/CD 流水线中集成静态密钥扫描工具（如 `gitleaks`、`trufflehog` 或 `detect-secrets`），配置针对 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 等支付前缀的正则规则，确保后续提交自动阻断。
+- **Test advice:** 在 CI/CD 流水线中集成静态密钥扫描工具（如 `gitleaks`、`trufflehog` 或 `detect-secrets`），配置针对 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 等支付前缀的正则规则，确保后续提交自动阻断。
 - **Test advice:** 补充配置加载单元测试，验证应用能否正确从环境变量或安全配置中心读取 `api_key`，并在缺失或格式错误时抛出明确异常而非静默降级。
 - **Test advice:** 增加集成测试，强制使用沙箱/测试环境密钥（`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER`）验证支付链路，确保生产密钥绝不进入非生产执行路径。
 

@@ -1,6 +1,6 @@
 不能合并。
 
-发现高风险问题：配置中提交了疑似真实支付 API 密钥，且项目目前没有 secret 扫描机制。该密钥以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 形式出现，属于生产级敏感凭据风险；一旦进入仓库历史，即使后续删除也可能已被泄露。
+发现高风险问题：配置中提交了疑似真实支付 API 密钥，且项目目前没有 secret 扫描机制。该密钥以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 形式出现，属于生产级敏感凭据风险；一旦进入仓库历史，即使后续删除也可能已被泄露。
 
 建议处理：
 

@@ -2,7 +2,7 @@
 🚫 阻断合并（Block Merge）
 
 **主要发现与严重等级**
-- 🔴 [严重/Critical] 硬编码生产支付密钥：`payment.api_key` 直接写入 YAML 配置，且前缀为 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`，属于高敏感生产凭证。
+- 🔴 [严重/Critical] 硬编码生产支付密钥：`payment.api_key` 直接写入 YAML 配置，且前缀为 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`，属于高敏感生产凭证。
 - 🟠 [高/High] 缺乏安全配置基线：项目未启用密钥扫描机制，未采用环境变量或密钥管理服务加载敏感配置。
 
 **风险影响**
@@ -11,7 +11,7 @@
 
 **测试与扫描建议**
 - 在 CI/CD 流水线中强制集成静态密钥扫描（如 gitleaks、truffleHog 或平台原生 Secret Scanning），配置为阻断级规则。
-- 补充配置加载与校验测试：验证应用能否正确从环境变量读取 `api_key`；增加环境匹配校验（如非生产环境禁止使用 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀）；确保密钥缺失时抛出明确错误而非静默降级。
+- 补充配置加载与校验测试：验证应用能否正确从环境变量读取 `api_key`；增加环境匹配校验（如非生产环境禁止使用 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀）；确保密钥缺失时抛出明确错误而非静默降级。
 - 增加配置快照测试：确保合并后的配置结构符合预期，且敏感字段在日志/调试输出中被自动脱敏。
 
 **不确定性**
@@ -19,6 +19,6 @@
 - 未知当前仓库是否还存在其他硬编码凭证或类似配置模式。
 
 **后续交接**
-- 🔐 **安全团队**：立即轮换该 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 密钥，审计近期支付网关调用日志，评估泄露影响并执行应急响应。
+- 🔐 **安全团队**：立即轮换该 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 密钥，审计近期支付网关调用日志，评估泄露影响并执行应急响应。
 - 🛠️ **DevOps/平台团队**：落地 pre-commit 钩子与 CI 扫描策略，建立密钥准入拦截机制。
 - 💻 **后端/架构团队**：重构配置加载逻辑，统一迁移至环境变量或企业级密钥管理服务（如 Vault/KMS），更新部署与开发规范。

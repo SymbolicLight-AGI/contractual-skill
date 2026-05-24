@@ -5,7 +5,7 @@
 ## Main Findings
 
 1. **Hard‑coded Live API Key (Secret Leak)**  
-   The `api_key` value appears to be a live secret (`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`). Once committed, it becomes part of the repository history and is readable by anyone with repository access (including forks, mirrors, logs, and backups).  
+   The `api_key` value appears to be a live secret (`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`). Once committed, it becomes part of the repository history and is readable by anyone with repository access (including forks, mirrors, logs, and backups).  
    **Impact**: Full compromise of the payment gateway account—attackers can issue charges, refunds, or exfiltrate cardholder data.  
    **Immediate action**: Rotate this key right now (before anything else). Revoke the exposed key on the payment provider’s dashboard.
 
@@ -35,7 +35,7 @@
 ## Test Advice
 
 - Write a unit test that verifies the configuration loader **rejects** any plain‑text `api_key` and requires an environment variable or external secret source.
-- Add a pre‑commit hook or CI job that scans for patterns like `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`, `SYNTHETIC_PAYMENT_PUBLIC_PLACEHOLDER`, `PRIVATE_KEY_BLOCK_PATTERN` and fails the build.
+- Add a pre‑commit hook or CI job that scans for patterns like `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`, `SYNTHETIC_PAYMENT_PUBLIC_PLACEHOLDER`, `PRIVATE_KEY_BLOCK_PATTERN` and fails the build.
 - After key rotation, confirm that the new key works, and the old key is revoked (integration test against the real endpoint, using a valid, rotated key never committed).
 
 ## Uncertainty

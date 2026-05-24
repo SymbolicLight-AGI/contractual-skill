@@ -43,7 +43,7 @@ Before finishing, check whether the output covers the task request, identifies m
 
 - 客户：某汽车零部件企业。
 - 联系人：李伟。
-- 电话：13800001111。
+- 电话：138****1111。
 - 邮箱：li.wei@example.test。
 - 客户需求：
   - 希望将售后维修案例整理成知识库。

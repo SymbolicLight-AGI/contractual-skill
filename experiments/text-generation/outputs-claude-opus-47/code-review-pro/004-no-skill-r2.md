@@ -2,7 +2,7 @@
 
 ## 严重问题：硬编码生产密钥泄露
 
-`api_key` 字段包含以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头的生产密钥（疑似 Stripe 风格的 live secret key）。一旦该配置被提交到仓库，密钥即视为**已泄露**，无论后续是否回滚提交。
+`api_key` 字段包含以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头的生产密钥（疑似 Stripe 风格的 live secret key）。一旦该配置被提交到仓库，密钥即视为**已泄露**，无论后续是否回滚提交。
 
 风险等级：**高危 / 阻断级**
 
@@ -41,10 +41,10 @@ payment:
 
 ### 5. 补充防御措施
 - **接入 secret 扫描**：启用 `gitleaks` / `trufflehog` / GitHub Secret Scanning，作为 pre-commit hook 与 CI 必过检查。
-- **pre-commit 钩子**：本地阻断含密钥模式（`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`、`AWS_ACCESS_KEY_ID_PATTERN`、`PRIVATE_KEY_BLOCK_PATTERN` 等）的提交。
+- **pre-commit 钩子**：本地阻断含密钥模式（`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`、`AWS_ACCESS_KEY_ID_PATTERN`、`PRIVATE_KEY_BLOCK_PATTERN` 等）的提交。
 - **新增单元/集成测试**：
   - 配置加载逻辑应在缺少 `PAYMENT_API_KEY` 时显式失败，而非使用默认值或空串。
-  - 验证生产环境配置中不存在以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头的字面量（可加一条 lint/test 断言）。
+  - 验证生产环境配置中不存在以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头的字面量（可加一条 lint/test 断言）。
 - **文档**：在 `CONTRIBUTING.md` 中明确密钥处理规范与泄露应急流程。
 
 ---
@@ -57,5 +57,5 @@ payment:
 ---
 
 ## 不确定性标注
-- 密钥真实归属服务商需根据上下文确认，`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 仅为常见前缀约定。
+- 密钥真实归属服务商需根据上下文确认，`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 仅为常见前缀约定。
 - 平台侧历史清除的彻底性依赖具体托管方政策。

@@ -1,4 +1,4 @@
-- Finding: 配置文件中包含明文支付API密钥（`api_key`），直接暴露在仓库中。该密钥前缀 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 表明属于生产环境活跃密钥，泄露后果严重。
+- Finding: 配置文件中包含明文支付API密钥（`api_key`），直接暴露在仓库中。该密钥前缀 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 表明属于生产环境活跃密钥，泄露后果严重。
 
 - Risk: 密钥泄露可导致攻击者直接调用支付API，造成资金盗刷、数据窃取、业务中断及合规问题。项目无 secret 扫描，进一步扩大了攻击窗口期。
 
@@ -25,7 +25,7 @@
 - 执行密钥轮换后，回归测试支付链路。
 
 ## 不确定性
-- 该配置是否为生产真实密钥尚待确认，但从前缀 `SYNTHETIC_PAYMENT_SECRET_PREFIX` 判断可能性极高。
+- 该配置是否为生产真实密钥尚待确认，但从前缀 `FAKE_PAYMENT_TOKEN_PREFIX_FOR_SYNTHETIC_TEST_ONLY` 判断可能性极高。
 - 仓库历史中密钥可能已持久存在，需扫描全部提交记录。
 
 ## 交接建议

@@ -1,9 +1,9 @@
 **Overall Judgment:** Critical – immediate remediation required  
 
 **Main Findings**  
-- **Exposed secret:** `api_key` is stored in plain text in the repository (`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`).  
+- **Exposed secret:** `api_key` is stored in plain text in the repository (`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`).  
 - **No secret scanning:** The project lacks automated detection of secrets in code or config files.  
-- **Live key usage:** The key appears to be a production (`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`) credential, increasing the impact of exposure.  
+- **Live key usage:** The key appears to be a production (`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`) credential, increasing the impact of exposure.  
 
 **Impact**  
 - Unauthorized use of the payment API could lead to fraudulent transactions, financial loss, and data breaches.  

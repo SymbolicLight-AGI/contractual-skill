@@ -3,7 +3,7 @@
 - **结论:** **强烈建议阻断合并**。该提交存在高危安全与合规风险，不符合安全基线与配置管理规范。
 
 ## 主要问题
-- **Finding (Security):** `payment.api_key` 直接包含明文生产密钥（格式为 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`），未进行脱敏或加密处理。
+- **Finding (Security):** `payment.api_key` 直接包含明文生产密钥（格式为 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`），未进行脱敏或加密处理。
 - **Finding (Maintainability):** 配置未与环境隔离，硬编码值导致多环境（开发/测试/生产）部署困难，且易引发误用。
 - **Finding (Process):** 背景明确指出项目当前缺乏 Secret 扫描机制，导致此类敏感信息无法在提交阶段被自动化拦截。
 
@@ -13,7 +13,7 @@
 - **Risk (Reliability):** 硬编码密钥在密钥轮换或环境切换时需修改代码并重新部署，增加运维复杂度与意外停机概率。
 
 ## 测试建议
-- **Test advice:** 在 CI/CD 流水线中集成 Secret 扫描工具（如 gitleaks、truffleHog 或平台原生扫描），配置针对 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 等支付密钥前缀的正则规则，确保后续提交自动拦截。
+- **Test advice:** 在 CI/CD 流水线中集成 Secret 扫描工具（如 gitleaks、truffleHog 或平台原生扫描），配置针对 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 等支付密钥前缀的正则规则，确保后续提交自动拦截。
 - **Test advice:** 补充配置加载单元测试，验证应用能否正确从环境变量或密钥管理服务读取 `api_key`，并在缺失或格式错误时安全失败（fail-fast），而非静默降级。
 - **Test advice:** 增加沙箱环境集成测试，使用测试环境密钥验证支付模块的连通性与重试逻辑（`retry: 3`），确保配置解析不依赖硬编码值。
 

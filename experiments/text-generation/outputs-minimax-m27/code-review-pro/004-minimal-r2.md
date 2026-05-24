@@ -4,14 +4,14 @@
 
 | 级别 | 问题 | 说明 |
 |------|------|------|
-| **阻断** 🔴 | 硬编码密钥泄露 | `api_key` 字段包含 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀的密钥，已提交至仓库 |
+| **阻断** 🔴 | 硬编码密钥泄露 | `api_key` 字段包含 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀的密钥，已提交至仓库 |
 | **高危** 🟠 | 无密钥保护机制 | 配置文件中明文存储，无加密或访问控制 |
 
 ### 风险评估
 
 - **泄露范围**：若密钥为真实生产密钥，攻击者可利用其进行未授权支付操作
 - **项目防护缺失**：项目无 secret 扫描工具，无法在 CI 阶段拦截
-- **密钥类型**：`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀表明这是 Stripe 风格的 **生产级别密钥**，风险极高
+- **密钥类型**：`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀表明这是 Stripe 风格的 **生产级别密钥**，风险极高
 
 ### 建议措施
 

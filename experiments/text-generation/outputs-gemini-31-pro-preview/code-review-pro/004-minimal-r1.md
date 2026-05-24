@@ -2,7 +2,7 @@
 
 **Severity: CRITICAL**
 *   **Finding:** Hardcoded Live API Key (Security Risk)
-*   **Risk:** The configuration contains a plaintext live API key (`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER***`). Committing this to the repository will result in a severe credential leak, potentially leading to unauthorized financial transactions or data breaches. 
+*   **Risk:** The configuration contains a plaintext live API key (`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY***`). Committing this to the repository will result in a severe credential leak, potentially leading to unauthorized financial transactions or data breaches. 
 *   **Action:** **DO NOT MERGE.** Block this pull request immediately.
 *   **Remediation:** 
     1. **Rotate the Key:** Since this code was submitted to the repository, the key must be considered compromised. Revoke and rotate the API key immediately in the payment provider's system.

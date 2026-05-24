@@ -4,7 +4,7 @@
 
 **高风险：硬编码 API 密钥**
 
-- `api_key` 字段包含明文密钥（`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`）
+- `api_key` 字段包含明文密钥（`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`）
 - 密钥直接写入配置文件，缺乏加密或保护
 - 若代码库无 secret 扫描，密钥将直接暴露于版本历史
 

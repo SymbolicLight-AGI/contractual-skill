@@ -148,7 +148,7 @@ Stage 2 使用 6 到 8 个模型，覆盖强模型、中等模型和工具调用
 
 ### 当前接口连通性记录
 
-2026-05-23 通过 `https://www.autodl.art/api/v1/chat/completions` 做过最小 `pong` 探测。以下模型均返回 HTTP 200：
+2026-05-23 通过 `OpenAI-compatible chat completions endpoint` 做过最小 `pong` 探测。以下模型均返回 HTTP 200：
 
 - `gpt-5.5`
 - `claude-opus-4-7`

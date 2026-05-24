@@ -8,7 +8,7 @@
 
 | 项 | 说明 |
 |:---|:---|
-| **风险类型** | 硬编码 API 密钥（`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀表明为生产环境密钥） |
+| **风险类型** | 硬编码 API 密钥（`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀表明为生产环境密钥） |
 | **影响** | 密钥已暴露于代码仓库历史，即使后续删除仍可被追溯 |
 | **当前防护缺失** | 无 secret 扫描机制 |
 
@@ -17,7 +17,7 @@
 ## 建议措施
 
 ### 立即执行
-- **撤销该密钥**：在支付平台侧立即轮换/吊销 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 对应密钥
+- **撤销该密钥**：在支付平台侧立即轮换/吊销 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 对应密钥
 - **审查日志**：检查该密钥是否已被调用，排查未授权访问
 
 ### 修复方案

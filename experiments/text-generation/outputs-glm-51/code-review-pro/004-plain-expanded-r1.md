@@ -1,7 +1,7 @@
 Overall Judgment: Block merge. Critical security vulnerability identified.
 
 Main Findings & Severity:
-- [Critical] Secret Leak: The configuration hardcodes a live payment API key (prefix `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`). Committing this to a repository without secret scanning exposes the key to anyone with source access, violating security best practices.
+- [Critical] Secret Leak: The configuration hardcodes a live payment API key (prefix `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`). Committing this to a repository without secret scanning exposes the key to anyone with source access, violating security best practices.
 
 Impact:
 - Exposes the payment system to unauthorized access, potentially leading to financial fraud, data loss, and privacy exposure.

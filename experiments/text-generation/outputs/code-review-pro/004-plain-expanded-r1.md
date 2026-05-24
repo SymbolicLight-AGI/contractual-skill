@@ -4,7 +4,7 @@
 
 #### 高危：疑似生产支付 API 密钥被提交到仓库
 
-配置中包含 `payment.api_key`，值形态类似真实 live secret key，例如以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头。由于该配置已提交到仓库，且项目没有 secret 扫描，这存在明确的密钥泄露风险。
+配置中包含 `payment.api_key`，值形态类似真实 live secret key，例如以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头。由于该配置已提交到仓库，且项目没有 secret 扫描，这存在明确的密钥泄露风险。
 
 不要合并当前变更。
 
@@ -38,7 +38,7 @@
 
 4. **补充 secret 扫描**
    - 在本地 pre-commit、CI pipeline、PR 检查中加入 secret scanning。
-   - 扫描规则应覆盖常见支付密钥格式、`SYNTHETIC_PAYMENT_SECRET_PREFIX` / `SYNTHETIC_PAYMENT_TEST_SECRET_PREFIX` 等模式。
+   - 扫描规则应覆盖常见支付密钥格式、`FAKE_PAYMENT_TOKEN_PREFIX_FOR_SYNTHETIC_TEST_ONLY` / `SYNTHETIC_PAYMENT_TEST_SECRET_PREFIX` 等模式。
    - PR 中一旦发现疑似密钥，应直接失败。
 
 ### 测试 / 验证建议

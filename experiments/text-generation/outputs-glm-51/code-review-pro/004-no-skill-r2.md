@@ -1,4 +1,4 @@
-**安全风险**：检测到密钥泄露风险，配置中的 `api_key` 包含疑似生产环境的明文密钥（前缀为 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`）。
+**安全风险**：检测到密钥泄露风险，配置中的 `api_key` 包含疑似生产环境的明文密钥（前缀为 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`）。
 
 **处理建议**：
 1. **阻断合并**：拒绝本次合并请求，严禁将包含明文密钥的配置合入代码仓库。

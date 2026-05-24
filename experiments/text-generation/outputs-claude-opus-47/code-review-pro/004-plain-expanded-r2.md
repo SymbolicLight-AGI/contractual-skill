@@ -2,7 +2,7 @@
 
 ## 总体判断
 
-**阻断合并（Block merge）。** 该 YAML 文件包含一个看起来是生产环境的明文 API 密钥（`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER…` 前缀，疑似真实付款服务凭证），不得合入仓库。
+**阻断合并（Block merge）。** 该 YAML 文件包含一个看起来是生产环境的明文 API 密钥（`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY…` 前缀，疑似真实付款服务凭证），不得合入仓库。
 
 ---
 
@@ -10,7 +10,7 @@
 
 ### 1. 严重 — 生产密钥明文提交（Secret leakage）
 - **位置**：`payment.api_key`
-- **证据**：值以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头（典型的"live/生产"密钥命名约定），长度与常见付款服务密钥一致。不在此复述完整值。
+- **证据**：值以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头（典型的"live/生产"密钥命名约定），长度与常见付款服务密钥一致。不在此复述完整值。
 - **影响**：
   - 一旦合入主分支，密钥将进入 Git 历史，即使后续删除文件，历史提交、fork、CI 缓存、镜像中仍然可被检索。
   - 项目没有 secret 扫描，意味着此前可能已有类似泄露未被发现。
@@ -42,7 +42,7 @@
 
 ## 必需的修复行动（合并前）
 
-1. **立刻轮换该密钥**：联系付款服务方作废当前 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER…`，签发新密钥。视作已泄露处理，不要假设"还没人看到"。
+1. **立刻轮换该密钥**：联系付款服务方作废当前 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY…`，签发新密钥。视作已泄露处理，不要假设"还没人看到"。
 2. **从 Git 历史中清除**：使用 `git filter-repo` 或 BFG 重写历史；强制推送；通知所有协作者重新克隆。注意：即便清理，仍须按第 1 步轮换，因为无法保证未被抓取。
 3. **改用环境变量 / Secret Manager**：
    ```yaml
@@ -63,14 +63,14 @@
 - **pre-commit 钩子**：`detect-secrets` 或 `gitleaks protect`，在本地即拦截。
 - **回归测试**：
   - 启动时若 `PAYMENT_API_KEY` 缺失应明确失败（fail fast），添加单元测试覆盖。
-  - 配置加载层添加测试：禁止任何 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`/`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 字面量出现在仓库内（可作为 lint 规则）。
+  - 配置加载层添加测试：禁止任何 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`/`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 字面量出现在仓库内（可作为 lint 规则）。
 - **付款重试**：补充集成测试，验证幂等键存在且重试不会重复扣款。
 
 ---
 
 ## 不确定项
 
-- 无法从片段确认这是否为真实有效的生产密钥（也可能是占位/示例），但 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀与"没有 secret 扫描"的背景使得**必须按真实泄露处理**。
+- 无法从片段确认这是否为真实有效的生产密钥（也可能是占位/示例），但 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀与"没有 secret 扫描"的背景使得**必须按真实泄露处理**。
 - 不清楚该文件是否已经在历史中存在多久、是否已被外部抓取。需要查询 Git 历史与仓库可见性（public/private、fork 情况）。
 - 未提供 `retry` 的调用代码，无法判断是否幂等。
 

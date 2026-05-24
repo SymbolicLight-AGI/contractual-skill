@@ -24,9 +24,9 @@ run_id,skill,task_id,variant,repeat,structure,risk_control,evidence_quality,outp
 003-plain-expanded-r1,code-review-pro,003,plain-expanded,r1,5,5,5,5,5,5,False,输出完整识别吞错和财务静默失败风险，明确不认可修法，并给出安全替代方案、测试建议与责任交接。
 003-plain-expanded-r2,code-review-pro,003,plain-expanded,r2,5,5,5,4,5,5,False,整体完整识别吞错和财务静默失败风险并给出交接，但示例代码中使用未定义的 exc，需小幅修正后可直接落地。
 004-contractual-r1,code-review-pro,004,contractual,r1,5,5,5,5,5,5,False,完整识别密钥泄露并阻断合并，未复述完整密钥，交接和后续措施清晰。
-004-contractual-r2,code-review-pro,004,contractual,r2,5,5,4,5,5,5,False,整体满足阻断合并、轮换密钥、环境变量和扫描建议要求，但对 SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER 归属及权限范围有一定未证实推断。
+004-contractual-r2,code-review-pro,004,contractual,r2,5,5,4,5,5,5,False,整体满足阻断合并、轮换密钥、环境变量和扫描建议要求，但对 FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY 归属及权限范围有一定未证实推断。
 004-minimal-r1,code-review-pro,004,minimal,r1,5,5,5,5,4,5,False,整体满足阻断合并、密钥轮换、环境变量和扫描建议要求，但交接责任方和触发条件可更明确。
-004-minimal-r2,code-review-pro,004,minimal,r2,5,5,4,5,4,5,True,整体可直接用于阻断合并和整改，但将 SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER 直接断定为 Stripe 生产密钥属于未证实推断写成事实。
+004-minimal-r2,code-review-pro,004,minimal,r2,5,5,4,5,4,5,True,整体可直接用于阻断合并和整改，但将 FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY 直接断定为 Stripe 生产密钥属于未证实推断写成事实。
 004-no-skill-r1,code-review-pro,004,no-skill,r1,5,5,4,5,4,5,False,整体满足阻断合并、密钥轮换、环境变量和扫描测试建议，主要扣分在未明确责任方且对生产密钥判断略偏断言。
 004-no-skill-r2,code-review-pro,004,no-skill,r2,5,5,5,5,4,5,False,输出完整识别密钥泄露风险且未复述完整密钥，给出阻断合并、轮换、环境变量、扫描和测试建议；仅交接责任方不够明确。
 004-plain-expanded-r1,code-review-pro,004,plain-expanded,r1,5,5,5,5,5,5,False,完整识别密钥泄露风险且未复述完整密钥，明确阻断合并、轮换、环境变量改造、扫描测试和团队交接。

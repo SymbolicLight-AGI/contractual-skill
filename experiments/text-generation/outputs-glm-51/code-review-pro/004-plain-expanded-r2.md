@@ -1,11 +1,11 @@
 **Overall Judgment**: 阻断合并。存在高危密钥泄露风险，当前配置不可合并至仓库。
 
 **Main Findings & Severity**:
-- [Critical] 密钥硬编码泄露：配置中包含明文硬编码的支付 API 密钥（前缀为 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`），表明为生产环境密钥，直接提交至代码仓库构成严重安全漏洞。
+- [Critical] 密钥硬编码泄露：配置中包含明文硬编码的支付 API 密钥（前缀为 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`），表明为生产环境密钥，直接提交至代码仓库构成严重安全漏洞。
 - [Medium] 缺乏安全扫描防护：项目未配置 secret 扫描机制，导致此类高危泄露无法在 CI/CD 流程中被自动拦截。
 
 **Impact**:
-攻击者可利用泄露的 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 密钥未授权访问生产支付系统，可能导致直接的财务损失、客户隐私数据暴露及业务数据篡改。
+攻击者可利用泄露的 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 密钥未授权访问生产支付系统，可能导致直接的财务损失、客户隐私数据暴露及业务数据篡改。
 
 **Test Advice**:
 - 补充自动化扫描：在 CI 流水线或 pre-commit 钩子中集成 secret 扫描工具（如 gitleaks、truffleHog），确保类似密钥无法再次提交。

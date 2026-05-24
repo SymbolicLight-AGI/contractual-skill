@@ -7,7 +7,7 @@
 ## 主要问题
 
 1. **明文密钥提交到仓库（严重）**
-   - Finding: `payment.api_key` 字段直接写入了一个以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 为前缀的密钥（疑似生产环境长期密钥）。
+   - Finding: `payment.api_key` 字段直接写入了一个以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 为前缀的密钥（疑似生产环境长期密钥）。
    - Finding: 任务背景明确说明"项目没有 secret 扫描"，因此该密钥可能已在 PR、CI 日志、本地克隆中扩散。
    - 即使本次合并被阻断，只要 commit 已经推送到远端，密钥应视为已泄露。
 
@@ -16,7 +16,7 @@
    - Risk: 任何新成员或自动化任务都会在同一文件中再次添加敏感字段。
 
 3. **`api_url` 指向 `.test` TLD（中）**
-   - Finding: URL 使用 `payments.example.test`，与 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀语义冲突——要么 URL 是占位符，要么密钥被错误地放进了非生产配置。
+   - Finding: URL 使用 `payments.example.test`，与 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀语义冲突——要么 URL 是占位符，要么密钥被错误地放进了非生产配置。
    - Risk: 配置一致性问题，可能导致生产请求被发往错误端点，或测试环境意外持有生产密钥。
    - Uncertainty: 无法从片段判断该文件实际属于哪个环境。
 
@@ -34,17 +34,17 @@
 
 ## 测试建议
 
-- **密钥管理回归**：添加单元/集成测试，断言配置加载器在密钥字段为空或来自环境变量时正确读取；当 YAML 中检测到 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`、`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 等前缀时应拒绝启动并抛出明确错误。
+- **密钥管理回归**：添加单元/集成测试，断言配置加载器在密钥字段为空或来自环境变量时正确读取；当 YAML 中检测到 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`、`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 等前缀时应拒绝启动并抛出明确错误。
 - **CI 阻断测试**：引入 pre-commit + CI 双层 secret 扫描（如 gitleaks / trufflehog），并加入一条"已知坏样本"测试用例确保扫描器有效。
 - **支付幂等路径测试**：覆盖"首次成功"、"重试后成功"、"重试后失败"，确认重试不会产生重复扣款（需要幂等键）。
-- **环境隔离测试**：断言 test/staging 环境绝不能加载到以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头的密钥。
+- **环境隔离测试**：断言 test/staging 环境绝不能加载到以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头的密钥。
 - **配置加载失败路径测试**：缺少 env 变量时应快速失败而非回退到空字符串静默调用支付网关。
 
 ## 不确定性
 
 - 该配置文件所属环境（dev/staging/prod）未提供。
 - 提交是否已 push 到远端、是否已进入 CI 缓存或镜像未知 —— 但应按"已泄露"假设处理。
-- 该密钥是否真为生产长期密钥，还是被误标 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 前缀的样例，需支付平台后台核实。
+- 该密钥是否真为生产长期密钥，还是被误标 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 前缀的样例，需支付平台后台核实。
 - 现有重试逻辑是否已具备幂等键未知。
 - 仓库可见性（public/private）未提供，影响事故等级判定。
 

@@ -11,7 +11,7 @@
 
 ### 🔴 [Critical] 生产密钥明文入库
 - 位置：`payment.api_key`
-- 值：`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER****cdef`（前缀 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 表明为生产环境密钥，已脱敏，不复述完整值）
+- 值：`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY****cdef`（前缀 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 表明为生产环境密钥，已脱敏，不复述完整值）
 - 风险：
   - 任何有仓库读取权限者（含 CI、fork、镜像、历史快照）均可获取该密钥
   - 项目无 secret 扫描，意味着此前可能已有类似泄露未被发现
@@ -37,7 +37,7 @@
 ## 行动建议（按顺序）
 
 1. **立即阻断本 PR 合并**，不要 squash 后再合，也不要 force-push 试图掩盖。
-2. **吊销并轮换密钥**：在支付服务商控制台 revoke 当前 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER****cdef`，签发新密钥；检查该密钥的访问日志，确认是否已被滥用。
+2. **吊销并轮换密钥**：在支付服务商控制台 revoke 当前 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY****cdef`，签发新密钥；检查该密钥的访问日志，确认是否已被滥用。
 3. **改为环境变量 / Secret Manager 注入**：
    - 配置中保留占位符，例如 `api_key: ${PAYMENT_API_KEY}`，或从配置中完全移除该字段，运行时由 env / Vault / AWS Secrets Manager / KMS 注入。
    - 区分 dev/staging/prod 配置文件，禁止生产密钥出现在仓库任何分支。

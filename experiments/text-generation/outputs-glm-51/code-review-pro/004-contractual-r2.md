@@ -2,7 +2,7 @@
 阻断合并。配置中包含明文硬编码的生产级密钥，存在严重的安全与隐私泄露风险，不符合合并标准。
 
 - 主要问题
-- Finding: 配置文件中直接硬编码了疑似生产环境的支付 API 密钥（前缀为 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`），违反了密钥管理的基本安全原则。
+- Finding: 配置文件中直接硬编码了疑似生产环境的支付 API 密钥（前缀为 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`），违反了密钥管理的基本安全原则。
 - Finding: 项目当前缺乏 secret 扫描机制，导致高危密钥能够未经拦截直接提交到代码仓库。
 
 - 风险与影响
@@ -18,13 +18,13 @@
 - Uncertainty: 不确定该仓库的可见性范围（内部私有还是公开），这直接影响密钥泄露的实际暴露面。
 
 - 交接建议
-- Security: 立即交接给安全团队，执行密钥轮换（撤销当前 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 密钥并生成新密钥），并排查异常调用记录。
+- Security: 立即交接给安全团队，执行密钥轮换（撤销当前 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 密钥并生成新密钥），并排查异常调用记录。
 - Backend owner: 交接给后端负责人，将配置中的密钥替换为环境变量引用或外部密钥管理服务（如 Vault），并清理 Git 历史中的密钥痕迹。
 - QA/test owner: 交接给 QA 团队，在密钥轮换和配置重构完成后，验证支付连通性及失败重试（`retry: 3`）逻辑的正确性。
 
 - 完成前自检
 - Findings are grounded in provided code or context: 是。
-- Secrets are not repeated in full: 是，仅使用 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 指代。
+- Secrets are not repeated in full: 是，仅使用 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 指代。
 - Missing context is marked as uncertainty: 是。
 - Test advice matches the risk: 是，针对密钥扫描与安全加载提出测试建议。
 - Security, backend, product, or QA handoff is explicit when needed: 是，已明确指定安全、后端与 QA 交接。

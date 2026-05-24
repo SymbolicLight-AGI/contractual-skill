@@ -7,7 +7,7 @@
 配置中提交了疑似生产支付 API 密钥：
 
 ```yaml
-api_key: "SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER********"
+api_key: "FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY********"
 ```
 
 这是敏感凭据泄露风险。由于该配置已被提交到仓库，且项目没有 secret 扫描，存在以下风险：
@@ -37,7 +37,7 @@ payment:
 5. 为仓库补充 secret 扫描机制，例如：
    - pre-commit secret scan
    - CI secret scan
-   - 阻断包含 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`、API key、token 等模式的提交
+   - 阻断包含 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`、API key、token 等模式的提交
 6. 补充配置加载相关测试：
    - 缺少 `PAYMENT_API_KEY` 时应明确失败，而不是使用空值或默认弱配置。
    - 测试生产环境配置不得包含明文 secret。

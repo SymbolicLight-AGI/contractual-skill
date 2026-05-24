@@ -44,7 +44,7 @@ Before finishing, check whether the review includes actionable findings, risk im
 ```yaml
 payment:
   api_url: "https://payments.example.test"
-  api_key: "SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER"
+  api_key: "FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY"
   retry: 3
 ```
 

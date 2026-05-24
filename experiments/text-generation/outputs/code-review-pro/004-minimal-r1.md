@@ -4,7 +4,7 @@
 
 ### 1. 疑似生产支付密钥被提交到仓库
 
-配置中包含类似 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 的 API Key，且位于仓库配置文件中。根据命名前缀判断，这很可能是生产环境支付密钥或高权限密钥。
+配置中包含类似 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 的 API Key，且位于仓库配置文件中。根据命名前缀判断，这很可能是生产环境支付密钥或高权限密钥。
 
 风险：
 
@@ -54,7 +54,7 @@
      - 仓库托管平台的 secret scanning 功能
 
 2. **添加配置校验测试**
-   - 测试配置文件中不得出现疑似密钥格式，例如 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`、`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 等。
+   - 测试配置文件中不得出现疑似密钥格式，例如 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`、`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 等。
    - 测试生产配置必须从环境变量或密钥服务读取。
 
 3. **补充部署前检查**

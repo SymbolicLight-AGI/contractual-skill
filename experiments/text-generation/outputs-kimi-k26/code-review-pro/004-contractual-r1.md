@@ -2,7 +2,7 @@
   - **阻断合并**。配置文件中存在生产环境密钥硬编码，属于严重安全缺陷。
 
 - 主要问题
-  - **密钥硬编码**：`api_key` 字段包含生产环境密钥前缀 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`，直接嵌入 YAML 配置文件并提交至仓库。
+  - **密钥硬编码**：`api_key` 字段包含生产环境密钥前缀 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`，直接嵌入 YAML 配置文件并提交至仓库。
   - **无 secret 扫描**：项目当前缺乏自动化检测机制，无法阻止同类问题重复发生。
 
 - 风险与影响
@@ -12,7 +12,7 @@
 
 - 测试建议
   - 在 CI 中集成 secret 扫描工具（如 `truffleHog`、`git-secrets`、`GitHub secret scanning`）。
-  - 添加预提交钩子（pre-commit hook），拦截含 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`、`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 等模式的提交。
+  - 添加预提交钩子（pre-commit hook），拦截含 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`、`SYNTHETIC_PAYMENT_TEST_SECRET_PLACEHOLDER` 等模式的提交。
   - 编写配置加载测试，验证运行时环境变量注入成功，若回退到硬编码值则测试失败。
 
 - 不确定性

@@ -2,11 +2,11 @@
 **拒绝合并**。该配置提交包含极高危的安全漏洞（硬编码生产环境密钥），必须立即阻断合并流程并采取安全补救措施。
 
 ### 主要问题
-- **Finding**: 配置文件中直接硬编码了明文的支付 API 密钥（`api_key: "SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER"`）。
+- **Finding**: 配置文件中直接硬编码了明文的支付 API 密钥（`api_key: "FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY"`）。
 - **Finding**: 根据背景信息，当前项目缺乏 secret 扫描机制，导致此类高危提交未能被自动化拦截。
 
 ### 风险与影响
-- **Risk**: 严重安全风险。密钥前缀 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 强烈暗示这是一个生产环境的真实支付凭证。如果合并或保留在版本控制历史中，将导致支付系统权限完全泄露，可能引发未经授权的资金操作、严重的财务损失及合规性违约。
+- **Risk**: 严重安全风险。密钥前缀 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 强烈暗示这是一个生产环境的真实支付凭证。如果合并或保留在版本控制历史中，将导致支付系统权限完全泄露，可能引发未经授权的资金操作、严重的财务损失及合规性违约。
 
 ### 测试建议
 - **Test advice**: 立即在 CI/CD 管道中集成并启用 Secret 自动化扫描工具（如 GitLeaks 等），配置为阻断包含敏感凭证的提交。

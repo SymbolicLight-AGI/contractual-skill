@@ -1,11 +1,11 @@
 1. **🚨 密钥泄露风险** 
-   配置中直接硬编码了 `payment.api_key`（疑似 Stripe 实时密钥 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`）。该片段已明文提交至仓库，即使后续删除，密钥也已暴露在 Git 历史中，随时可被滥用。
+   配置中直接硬编码了 `payment.api_key`（疑似 Stripe 实时密钥 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`）。该片段已明文提交至仓库，即使后续删除，密钥也已暴露在 Git 历史中，随时可被滥用。
 
 2. **阻断合并（必须）** 
    当前 PR 必须暂停合并，立即废弃该配置文件，直到完成下列修复。
 
 3. **立即轮换密钥** 
-   - 立刻在支付后台（如 Stripe Dashboard）撤销/轮换已泄露的 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 密钥。
+   - 立刻在支付后台（如 Stripe Dashboard）撤销/轮换已泄露的 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 密钥。
    - 生成新密钥，严禁直接写入任何源代码或配置文件。
 
 4. **改用环境变量替换硬编码** 

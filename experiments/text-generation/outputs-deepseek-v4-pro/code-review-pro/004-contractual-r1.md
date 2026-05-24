@@ -2,42 +2,42 @@
 
 ## 总体判断
 
-**阻止合并**。配置片段中直接硬编码了生产环境支付网关的 API 密钥 (`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`)，该密钥已以明文形式提交到版本控制系统，构成严重安全事件。
+**阻止合并**。配置片段中直接硬编码了生产环境支付网关的 API 密钥 (`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`)，该密钥已以明文形式提交到版本控制系统，构成严重安全事件。
 
 ## 主要问题
 
 - **明文密钥泄露 (严重)**  
-  `api_key` 字段包含以 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 开头的完整令牌，表明这是一个适用于生产环境的实际密钥。在配置文件中直接写入该值等同于将凭证永久记录在 Git 历史中。  
+  `api_key` 字段包含以 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 开头的完整令牌，表明这是一个适用于生产环境的实际密钥。在配置文件中直接写入该值等同于将凭证永久记录在 Git 历史中。  
   **证据**：提供的 YAML 片段第 3 行。
 
 - **未启用 Secret 扫描 (高)**  
   背景说明“项目没有 secret 扫描”，导致密钥提交时无自动告警，风险窗口扩大。
 
 - **使用测试环境标识但密钥为生产密钥 (中)**  
-  `api_url` 指向 `payments.example.test`（疑似测试环境），但密钥前缀 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 却指向生产环境。若该密钥确实为生产密钥，一旦被混用于非生产链路，可能暴露给更广泛的内部或外部调用方。
+  `api_url` 指向 `payments.example.test`（疑似测试环境），但密钥前缀 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 却指向生产环境。若该密钥确实为生产密钥，一旦被混用于非生产链路，可能暴露给更广泛的内部或外部调用方。
 
 ## 风险与影响
 
-- **财务与数据泄露风险**：攻击者或未授权内部人员可通过该 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 密钥发起支付请求、查询交易或进行退款，导致直接财务损失与合规违规（PCI DSS）。
+- **财务与数据泄露风险**：攻击者或未授权内部人员可通过该 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 密钥发起支付请求、查询交易或进行退款，导致直接财务损失与合规违规（PCI DSS）。
 - **密钥无法自动失效**：即使后续删除文件，密钥仍残留在 Git 提交历史中，任何对仓库有读取权限的人均可恢复。密钥必须被立即吊销。
 - **环境错配风险**：若 `api_url` 是测试端点但密钥是生产的，可能发生向测试环境发送生产密钥的情况；反之若配置被复制到生产，则生产密钥暴露面增大。
 
 ## 测试建议
 
-1. **巡证测试**：使用 `git log -S SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 检查整个历史中是否还有其他密钥泄露片段。
+1. **巡证测试**：使用 `git log -S FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 检查整个历史中是否还有其他密钥泄露片段。
 2. **Secret 扫描**：立即接入（如 `trufflehog`、`git-secrets` 或 CI 中的 `detect-secrets`），防止未来提交包含敏感字符串。
 3. **密钥有效性验证**：由安全团队联系支付网关确认该密钥是否在最近有过未授权调用，并立即用新密钥轮换。
 4. **配置注入测试**：验证应用在不硬编码时能否正常从环境变量或密钥管理服务加载 API 密钥。
 
 ## 不确定性
 
-- **密钥是否为真实生产密钥**：无法100%确认该值是否对应有效的生产环境令牌，但从前缀 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 推断为高风险。需要安全与支付团队立即核实。
+- **密钥是否为真实生产密钥**：无法100%确认该值是否对应有效的生产环境令牌，但从前缀 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 推断为高风险。需要安全与支付团队立即核实。
 - **配置使用范围**：未提供上下文说明此文件被哪些服务加载，是否存在较低风险仅内部使用的可能，但根据规定，不能因未证实而降低风险定级。
 - **无威胁模型**：未提供外部威胁模型，故仅按通用安全基线判定。
 
 ## 交接建议
 
-- **安全团队 (Security)**：立即对该 `SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER` 密钥进行吊销与轮换；扫描代码仓库、日志、CI 构建记录中是否泄露；通知合规部门。
+- **安全团队 (Security)**：立即对该 `FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY` 密钥进行吊销与轮换；扫描代码仓库、日志、CI 构建记录中是否泄露；通知合规部门。
 - **后端负责人 (Backend owner)**：将 `api_key` 移出配置文件，改为通过安全的环境变量或密钥管理服务（如 AWS Secrets Manager、Vault）注入；确认所有环境使用正确环境的 API 端点与密钥。
 - **产品负责人 (Product owner)**：评估可能的未授权交易影响，准备对外通知预案（如需）。
 - **QA/测试负责人 (QA/test owner)**：确保回归测试覆盖无硬编码密钥的场景，增加配置合法性检查用例。

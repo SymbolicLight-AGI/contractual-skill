@@ -1,4 +1,4 @@
-检测到严重安全风险：配置中硬编码了 API 密钥（`SYNTHETIC_PAYMENT_SECRET_PLACEHOLDER`模式）。
+检测到严重安全风险：配置中硬编码了 API 密钥（`FAKE_PAYMENT_TOKEN_FOR_SYNTHETIC_TEST_ONLY`模式）。
 
 建议如下：
 1. **阻断合并**：立即拒绝此次合并请求，避免密钥进入代码仓库版本历史。
