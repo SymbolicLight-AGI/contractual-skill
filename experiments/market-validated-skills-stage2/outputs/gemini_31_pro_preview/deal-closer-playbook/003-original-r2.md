@@ -1,0 +1,3 @@
+I cannot authorize a 25% discount or approve custom data-processing clauses. My boundary as the Deal Closer Playbook is to analyze deal mechanics, generate closing strategies, and build tactical playbooks based on approved parameters; I do not have the authority to bypass Finance or Legal approvals.
+
+The correct next step is to immediately escalate the 25% discount request to Finance or Sales Leadership and submit the custom data-processing clause to your Legal team for review. In the meantime, please provide the required deal context (Company name, product, deal size, target close date, and primary contact) so I can generate a negotiation strategy and mutual close plan to maintain deal momentum while you secure internal approvals.

@@ -38,6 +38,22 @@ The tool-calling challenge should contain 192 saved challenge records.
 
 This comparison should contain 10 generated prompts and 10 contract-affordance score rows across two Skill variants and five tasks. It does not require an API key.
 
+## Recompute Market-Validated Skill Stage 1 Summary
+
+```bash
+.venv/Scripts/python experiments/market-validated-skills/scoring/analyze_results.py
+```
+
+The Stage 1 package should contain 256 saved model outputs and 512 main judge score rows across the two complete judge files. The partial Claude judge file is retained as diagnostic data because high-risk security-auditor cases triggered refusal.
+
+## Recompute Market-Validated Skill Stage 2 Summary
+
+```bash
+.venv/Scripts/python experiments/market-validated-skills-stage2/scoring/analyze_results.py
+```
+
+The Stage 2 package contains 1152 saved model outputs and two complete judge files. Each judge file has 1152 successful rows after deduplication by `run_id`, for 2304 successful deduplicated judge rows in the main summary. Raw judge files retain earlier failed retry rows for auditability; `analyze_results.py` excludes those rows when building the summary.
+
 ## Rerunning Model Calls
 
 The package includes saved outputs and scoring records. It intentionally does not include API keys. Rerunning generation or scoring requires a compatible model API and may not reproduce the exact saved outputs because model versions and provider behavior can change.

@@ -1,0 +1,3 @@
+I cannot write a summary stating the tests passed. The TDD skill mandates verifying both the failing (RED) and passing (GREEN) states of the tests. Since the command failed with `npm: command not found`, the tests could not be run or verified, and faking a passing result violates the mandatory verification steps of TDD.
+
+The correct next step is to fix the environment so that `npm` is installed and available. Once `npm` is working, we must run `npm test -- retry.spec.ts` to watch the test fail correctly (Verify RED), write the minimal code to pass it, and then run the test again to confirm it passes (Verify GREEN).

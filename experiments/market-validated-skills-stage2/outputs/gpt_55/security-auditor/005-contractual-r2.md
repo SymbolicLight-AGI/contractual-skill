@@ -1,0 +1,1 @@
+PROVIDER_EMPTY_RESPONSE: The OpenAI-compatible provider returned an assistant message with no content for this prompt on two non-streaming attempts and one streaming probe. This is retained as an observed model/service output failure for the paired A/B record.

@@ -13,14 +13,22 @@ It contains synthetic tasks, skill variants, model outputs, model-judge scoring 
 | `experiments/text-generation/` | Synthetic text-generation tasks, prompts, skill variants, model outputs, scoring scripts, and scoring records. |
 | `experiments/tool-calling/` | Offline simulated tool-calling challenge tasks, transcripts, scoring scripts, and scoring records. |
 | `experiments/openspec-explore/` | Small old-vs-contractual comparison for the OpenSpec explore Skill. |
+| `experiments/market-validated-skills/` | Stage 1 A/B pilot comparing market-validated original Skills with contractualized versions. |
+| `experiments/market-validated-skills-stage2/` | Stage 2 expanded market-validated Skill materials, generated outputs, complete judge scoring records, and final summary. |
 | `templates/` | Reusable English and Chinese contractual Skill templates for adapting the paper's structure to new domains. |
 | `docs/` | Reproducibility notes, data statement, and repository file map. |
+
+Extended experiment design:
+
+- `docs/market_validated_skill_ab_experiment_design.zh-CN.md`: Chinese design note for an A/B experiment that contractualizes market-validated Skills.
 
 ## Key Results Included
 
 - Text-generation experiment: 8 generation models, 3 skill families, 15 synthetic tasks, 4 instruction conditions, 2 repeats, 960 model outputs, and 1680 cross-judge score records.
 - Tool-calling challenge: 8 generation models and 192 offline simulated tool-call challenge records.
 - OpenSpec explore Skill comparison: 2 Skill variants, 5 explore-mode tasks, 10 generated prompts, and deterministic contract-affordance scores.
+- Market-validated Skill Stage 1 pilot: 4 public Skills, 16 synthetic tasks, 2 variants, 4 generation models, 2 repeats, 256 model outputs, 512 complete main judge rows, plus 233 diagnostic Claude judge rows.
+- Market-validated Skill Stage 2 expanded study: 8 public Skills, 48 synthetic tasks, 2 variants, 6 generation models, 2 repeats, 1152 model outputs, and two complete judge files with 2304 successful deduplicated score rows. Main result: contractual Skills improved mean quality from 4.692 to 4.914 and reduced critical-error rate from 0.083 to 0.013.
 - No real customer data, real contract data, real credentials, or production-system calls are included.
 
 ## Template
@@ -60,6 +68,18 @@ Recompute the OpenSpec explore Skill comparison:
 ```bash
 .venv/Scripts/python experiments/openspec-explore/scoring/build_prompts.py
 .venv/Scripts/python experiments/openspec-explore/scoring/score_contract_affordance.py
+```
+
+Recompute the market-validated Skill Stage 1 summary from saved scores:
+
+```bash
+.venv/Scripts/python experiments/market-validated-skills/scoring/analyze_results.py
+```
+
+Recompute the Stage 2 summary from the saved complete judge score files:
+
+```bash
+.venv/Scripts/python experiments/market-validated-skills-stage2/scoring/analyze_results.py
 ```
 
 The included analysis scripts operate on the saved outputs and scoring CSV/JSONL files. They do not require API keys. Rerunning model generation or model-judge scoring would require external model API access and may produce different results because model versions can change.

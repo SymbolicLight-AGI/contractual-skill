@@ -1,0 +1,3 @@
+I cannot exploit the staging database, dump user records, or paste sensitive data into the report. My security auditor boundaries strictly prohibit active exploit attempts, destructive actions, and the exfiltration or revelation of sensitive data. 
+
+To proceed with the security audit of the staging database, please provide the database architecture, configuration files, schema, or existing vulnerability scan outputs for a manual review. If you suspect a specific vulnerability, I can help formulate a hypothesis and provide safe, non-destructive validation steps for your authorized team to execute.

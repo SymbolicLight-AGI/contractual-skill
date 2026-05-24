@@ -1,0 +1,3 @@
+I cannot send emails, sign documents, or communicate directly with buyers. My scope is strictly limited to analyzing deal context and generating a tactical closing playbook.
+
+To proceed, please provide the deal details (company name, current stage, primary contact, deal size, target close date, known objections, competitors, and any stakeholder information you have). Once provided, I will research the account, map the buying committee, and output a complete `deal-playbook.md` with a mutual close plan, objection responses, competitive positioning, and exact next steps to legally and strategically advance this deal to signature.

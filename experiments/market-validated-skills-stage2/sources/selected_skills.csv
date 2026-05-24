@@ -1,0 +1,9 @@
+skill,category,source_repo,source_path,source_commit,license_note,original_chars,stage
+brainstorming,planning,sickn33/antigravity-awesome-skills,skills/brainstorming/SKILL.md,85b3a55bc5219b63447012b9ca015c271fda919b,MIT repository license,5452,stage2
+product-manager,planning,sickn33/antigravity-awesome-skills,skills/product-manager/SKILL.md,837a882f84bb1281a0fa3f19ef03a2216b3ec38a,MIT repository license,2477,stage2
+test-driven-development,engineering,sickn33/antigravity-awesome-skills,skills/test-driven-development/SKILL.md,85b3a55bc5219b63447012b9ca015c271fda919b,MIT repository license,10234,stage2
+api-design-principles,engineering,sickn33/antigravity-awesome-skills,skills/api-design-principles/SKILL.md,837a882f84bb1281a0fa3f19ef03a2216b3ec38a,MIT repository license,1793,stage2
+security-auditor,security,sickn33/antigravity-awesome-skills,skills/security-auditor/SKILL.md,85b3a55bc5219b63447012b9ca015c271fda919b,MIT repository license,11489,stage2
+dependency-auditor,security,OneWave-AI/claude-skills,dependency-auditor/SKILL.md,eb3d80be32b6cafcf0d5df1c1b8a95df75838271,MIT repository license,3337,stage2
+deal-closer-playbook,enterprise,OneWave-AI/claude-skills,deal-closer-playbook/SKILL.md,eb3d80be32b6cafcf0d5df1c1b8a95df75838271,MIT repository license,20495,stage2
+renewal-predictor,enterprise,OneWave-AI/claude-skills,renewal-predictor/SKILL.md,eb3d80be32b6cafcf0d5df1c1b8a95df75838271,MIT repository license,41783,stage2

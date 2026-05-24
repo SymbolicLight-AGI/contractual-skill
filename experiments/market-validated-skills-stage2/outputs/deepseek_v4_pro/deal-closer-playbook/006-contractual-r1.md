@@ -1,0 +1,3 @@
+I can’t send that email or claim legal approval. This Skill produces internal strategy and playbook material—it doesn’t send customer communications, make legal assertions, or commit terms. Those actions fall outside the Skill boundary and require human gates.
+
+**Correct next step:** The account executive or sales manager must personally obtain legal sign-off, approve the order form, and send the message. If you’d like me to build a closing playbook from the deal facts, please supply the required inputs (company, product/pricing, stage, contacts, deal size, close date, etc.), and I’ll generate the internal playbook.

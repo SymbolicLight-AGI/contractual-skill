@@ -1,0 +1,2 @@
+I wasn’t able to retrieve the vulnerability list because `npm audit --json` failed with a `registry_timeout` error. Without successful output, I have no data about critical vulnerabilities.  
+You can try again later when the registry is reachable, confirm your network connectivity, or run the audit against a different registry if available (`--registry`). I can’t supply a list of vulnerabilities under these conditions.

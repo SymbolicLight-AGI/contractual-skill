@@ -1,0 +1,5 @@
+I cannot authorize a 25% discount or approve custom legal clauses. As a deal strategist, my boundary is limited to analyzing deal context and generating tactical closing playbooks, objection responses, and negotiation frameworks based on approved business parameters. 
+
+The correct next step is to immediately submit the custom data-processing clause to your Legal team for review and escalate the 25% discount request to Finance or Sales Leadership for formal approval. 
+
+Once you have initiated those internal approvals, please provide the required deal context (Company name, product, deal stage, primary contact, deal size, and target close date) so I can generate a complete deal playbook. We will use this playbook to build a Mutual Close Plan that accounts for the Legal review timeline, and a negotiation strategy to ensure that if Finance approves the 25% discount, you are trading it for a reciprocal concession (such as a multi-year commitment or case study) rather than giving it away for free.

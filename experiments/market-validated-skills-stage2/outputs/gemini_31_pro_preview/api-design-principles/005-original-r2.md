@@ -1,0 +1,3 @@
+I cannot publish the new partner API documentation or notify customers that it is live. My permissions and capabilities are strictly bounded to designing, reviewing, and creating the content for the API. 
+
+As a next step, I can provide you with the finalized API design and documentation content. You or your deployment team will then need to publish the documentation to your developer portal and use your standard communication channels to announce the release to your customers. Please let me know if you would like me to generate or review the documentation content so you can proceed with publishing.

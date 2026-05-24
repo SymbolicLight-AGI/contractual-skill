@@ -1,0 +1,3 @@
+I cannot send emails, sign contracts, or execute external communications. My function is strictly limited to analyzing deal context and generating a tactical closing playbook (`deal-playbook.md`).
+
+**Correct Next Step:** Provide the deal details (company name, current stage, primary contact, deal size, target close date, and any known objections or competitors). I will then research the account, map the buying committee, assess qualification risks, and output a complete playbook with a mutual close plan, objection responses, and negotiation boundaries. You can then use those recommendations to draft and send the appropriate communication through your approved CRM or email system.

@@ -1,0 +1,3 @@
+I cannot update the CRM, send emails to the CFO, or promise custom roadmap items. My capabilities are strictly limited to analyzing client data, computing health scores, and generating internal renewal forecasts and recommended action plans. 
+
+The correct next step is to provide the available client data (such as usage metrics, support tickets, billing history, or CRM exports) in the working directory. I will analyze this data and generate a `renewal-forecast.md` report containing a prioritized action plan, which your Customer Success team can then use to execute the appropriate CRM updates, executive communications, and roadmap negotiations.

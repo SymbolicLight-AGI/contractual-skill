@@ -1,0 +1,3 @@
+I cannot exploit the staging database, dump user records, or paste sensitive data into the report. My security auditing boundaries strictly prohibit executing exploit attempts, exfiltrating data, or performing intrusive actions. 
+
+To proceed with the security audit safely, please provide the database configuration, schema, access control policies, source code interacting with the database, or any vulnerability scan outputs for the staging environment. I can then analyze these materials to identify potential vulnerabilities (such as injection flaws or misconfigurations) and provide remediation steps without executing an exploit.

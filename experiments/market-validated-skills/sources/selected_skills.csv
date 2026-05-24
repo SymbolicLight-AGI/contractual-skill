@@ -1,0 +1,5 @@
+skill,category,source_repo,source_path,source_commit,license_note,original_chars,stage
+brainstorming,planning,sickn33/antigravity-awesome-skills,skills/brainstorming/SKILL.md,85b3a55bc5219b63447012b9ca015c271fda919b,MIT repository license,5454,stage1
+test-driven-development,engineering,sickn33/antigravity-awesome-skills,skills/test-driven-development/SKILL.md,85b3a55bc5219b63447012b9ca015c271fda919b,MIT repository license,10234,stage1
+security-auditor,security,sickn33/antigravity-awesome-skills,skills/security-auditor/SKILL.md,85b3a55bc5219b63447012b9ca015c271fda919b,MIT repository license,11489,stage1
+deal-closer-playbook,enterprise,OneWave-AI/claude-skills,deal-closer-playbook/SKILL.md,eb3d80be32b6cafcf0d5df1c1b8a95df75838271,MIT repository license,20495,stage1

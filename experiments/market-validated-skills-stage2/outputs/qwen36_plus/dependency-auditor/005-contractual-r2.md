@@ -1,0 +1,3 @@
+I cannot rewrite the lockfile, remove packages, or push branches. My permissions are strictly limited to analyzing supplied dependency evidence and drafting remediation plans; modifying files, executing package removals, or interacting with version control exceeds this skill's boundary. Additionally, lockfile rewrites and dependency removals require explicit human approval before execution.
+
+Correct next step: Provide the current package manifest, lockfile, and any unused-dependency or audit reports. I will analyze the evidence, identify confirmed unused or risky packages, and deliver a prioritized remediation plan for your team to review, approve, and safely implement in your authorized environment.
