@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Contractual Skill framework overview</title>
+  <desc id="desc">A visual overview showing how Contractual Skills expose task fields before agent runtime and guardrail enforcement.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#223047" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5b72"/>
+    </marker>
+    <linearGradient id="soft-bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="52%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fffaf4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="620" rx="28" fill="url(#soft-bg)"/>
+  <rect x="38" y="34" width="1124" height="552" rx="26" fill="#ffffff" stroke="#d6deea"/>
+
+  <text x="72" y="86" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="750" fill="#172033">Contractual Skill Layer</text>
+  <text x="72" y="119" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" fill="#637187">Explicit contracts make agent goals, boundaries, evidence, and acceptance criteria inspectable before execution.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="82" y="162" width="230" height="104" rx="18" fill="#eef5ff" stroke="#7ea7d9" stroke-width="2"/>
+    <text x="197" y="203" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="750" fill="#172033">Source Skill</text>
+    <text x="197" y="231" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#5d6a7b">free-form instructions</text>
+
+    <rect x="485" y="150" width="230" height="128" rx="18" fill="#fff3df" stroke="#d09a4e" stroke-width="2"/>
+    <text x="600" y="200" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="23" font-weight="750" fill="#172033">Contractual</text>
+    <text x="600" y="228" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="23" font-weight="750" fill="#172033">Skill</text>
+    <text x="600" y="254" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#6f5c3d">structured task contract</text>
+
+    <rect x="888" y="162" width="230" height="104" rx="18" fill="#edf8ee" stroke="#72a56e" stroke-width="2"/>
+    <text x="1003" y="203" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="750" fill="#172033">Agent Runtime</text>
+    <text x="1003" y="231" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#5d6a7b">plan, call tools, respond</text>
+  </g>
+
+  <line x1="326" y1="214" x2="462" y2="214" stroke="#4b5b72" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="738" y1="214" x2="864" y2="214" stroke="#4b5b72" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="394" y="196" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="650" fill="#4c5f77">contractualize</text>
+  <text x="801" y="196" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="650" fill="#4c5f77">guidance</text>
+
+  <g>
+    <text x="72" y="330" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="750" fill="#172033">Inspectable contract fields</text>
+    <text x="72" y="356" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#637187">The same Skill can be read by humans, evaluators, and runtime checks.</text>
+  </g>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#172033">
+    <rect x="72" y="388" width="128" height="40" rx="20" fill="#e9f1ff" stroke="#c8d8f2"/>
+    <text x="136" y="414" text-anchor="middle">Goal</text>
+    <rect x="214" y="388" width="128" height="40" rx="20" fill="#f5edf9" stroke="#dec9ea"/>
+    <text x="278" y="414" text-anchor="middle">Audience</text>
+    <rect x="356" y="388" width="128" height="40" rx="20" fill="#ebf7ef" stroke="#c7e1cc"/>
+    <text x="420" y="414" text-anchor="middle">Context</text>
+    <rect x="498" y="388" width="148" height="40" rx="20" fill="#fff1de" stroke="#e7c58f"/>
+    <text x="572" y="414" text-anchor="middle">Permissions</text>
+    <rect x="660" y="388" width="140" height="40" rx="20" fill="#fff0f0" stroke="#ebb9b9"/>
+    <text x="730" y="414" text-anchor="middle">Constraints</text>
+    <rect x="814" y="388" width="128" height="40" rx="20" fill="#eaf7f7" stroke="#bfe0e2"/>
+    <text x="878" y="414" text-anchor="middle">Evidence</text>
+    <rect x="956" y="388" width="128" height="40" rx="20" fill="#f3f0ff" stroke="#d2c8ef"/>
+    <text x="1020" y="414" text-anchor="middle">Output</text>
+
+    <rect x="214" y="448" width="148" height="40" rx="20" fill="#eef5ff" stroke="#c8d8f2"/>
+    <text x="288" y="474" text-anchor="middle">Quality Bar</text>
+    <rect x="378" y="448" width="148" height="40" rx="20" fill="#f8f4e8" stroke="#dfd0a7"/>
+    <text x="452" y="474" text-anchor="middle">Verification</text>
+    <rect x="542" y="448" width="148" height="40" rx="20" fill="#edf8ee" stroke="#c7e1cc"/>
+    <text x="616" y="474" text-anchor="middle">Human Gates</text>
+    <rect x="706" y="448" width="160" height="40" rx="20" fill="#f1f5f9" stroke="#ccd5e2"/>
+    <text x="786" y="474" text-anchor="middle">Test Criteria</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="88" y="520" width="300" height="42" rx="14" fill="#f4f7fb" stroke="#c9d3e1"/>
+    <text x="238" y="548" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#344154">tool adapter schema</text>
+    <rect x="450" y="520" width="300" height="42" rx="14" fill="#fff0f0" stroke="#ebb9b9"/>
+    <text x="600" y="548" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#344154">guardrails and human gates</text>
+    <rect x="812" y="520" width="300" height="42" rx="14" fill="#eff8f1" stroke="#c7e1cc"/>
+    <text x="962" y="548" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#344154">logs, checks, evaluation</text>
+  </g>
+
+  <line x1="388" y1="541" x2="426" y2="541" stroke="#4b5b72" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="750" y1="541" x2="788" y2="541" stroke="#4b5b72" stroke-width="2.5" marker-end="url(#arrow)"/>
+</svg>

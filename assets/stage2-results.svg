@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Stage 2 Contractual Skill result summary</title>
+  <desc id="desc">A visual summary of Stage 2 evaluation results showing mean quality improvement and critical-error reduction.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#223047" flood-opacity="0.13"/>
+    </filter>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fff8f1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="620" rx="28" fill="url(#bg)"/>
+  <rect x="38" y="34" width="1124" height="552" rx="26" fill="#ffffff" stroke="#d6deea"/>
+
+  <text x="72" y="86" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="750" fill="#172033">Market-Validated Skill Stage 2</text>
+  <text x="72" y="119" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" fill="#637187">Contractualized Skills improved quality and reduced critical errors in a 1,152-output A/B study.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="72" y="160" width="492" height="190" rx="22" fill="#f7fbff" stroke="#c8d8f2"/>
+    <text x="104" y="204" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="750" fill="#172033">Mean Quality</text>
+    <text x="104" y="232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#637187">Average score across complete judge rows</text>
+
+    <rect x="104" y="260" width="360" height="18" rx="9" fill="#dfe7f1"/>
+    <rect x="104" y="260" width="338" height="18" rx="9" fill="#8aa6c9"/>
+    <text x="482" y="275" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#344154">4.692</text>
+    <text x="104" y="302" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" fill="#637187">Original</text>
+
+    <rect x="104" y="306" width="360" height="18" rx="9" fill="#dfe7f1"/>
+    <rect x="104" y="306" width="354" height="18" rx="9" fill="#2f8f66"/>
+    <text x="482" y="321" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f6b4d">4.914</text>
+    <text x="438" y="226" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="40" font-weight="800" fill="#1f6b4d">+0.222</text>
+    <text x="438" y="248" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" fill="#637187">score gain</text>
+    <text x="104" y="340" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" fill="#637187">Contractual Skill</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="636" y="160" width="492" height="190" rx="22" fill="#fff8f4" stroke="#efcfb3"/>
+    <text x="668" y="204" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="750" fill="#172033">Critical-Error Rate</text>
+    <text x="668" y="232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#637187">Lower is better for high-risk task behavior</text>
+
+    <rect x="668" y="260" width="360" height="18" rx="9" fill="#eadbd2"/>
+    <rect x="668" y="260" width="299" height="18" rx="9" fill="#c45151"/>
+    <text x="1046" y="275" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#7d3535">0.083</text>
+    <text x="668" y="302" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" fill="#637187">Original</text>
+
+    <rect x="668" y="306" width="360" height="18" rx="9" fill="#eadbd2"/>
+    <rect x="668" y="306" width="47" height="18" rx="9" fill="#2f8f66"/>
+    <text x="1046" y="321" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f6b4d">0.013</text>
+    <text x="1000" y="226" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="40" font-weight="800" fill="#1f6b4d">-84%</text>
+    <text x="1000" y="248" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" fill="#637187">relative reduction</text>
+    <text x="668" y="340" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" fill="#637187">Contractual Skill</text>
+  </g>
+
+  <text x="72" y="406" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="750" fill="#172033">Evaluation Scale</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Segoe UI, Arial, sans-serif">
+    <rect x="72" y="430" width="160" height="96" rx="18" fill="#eef5ff" stroke="#c8d8f2"/>
+    <text x="152" y="470" text-anchor="middle" font-size="30" font-weight="800" fill="#172033">8</text>
+    <text x="152" y="497" text-anchor="middle" font-size="14" font-weight="650" fill="#637187">public skills</text>
+
+    <rect x="256" y="430" width="160" height="96" rx="18" fill="#f5edf9" stroke="#dec9ea"/>
+    <text x="336" y="470" text-anchor="middle" font-size="30" font-weight="800" fill="#172033">48</text>
+    <text x="336" y="497" text-anchor="middle" font-size="14" font-weight="650" fill="#637187">tasks</text>
+
+    <rect x="440" y="430" width="160" height="96" rx="18" fill="#ebf7ef" stroke="#c7e1cc"/>
+    <text x="520" y="470" text-anchor="middle" font-size="30" font-weight="800" fill="#172033">6</text>
+    <text x="520" y="497" text-anchor="middle" font-size="14" font-weight="650" fill="#637187">models</text>
+
+    <rect x="624" y="430" width="160" height="96" rx="18" fill="#fff1de" stroke="#e7c58f"/>
+    <text x="704" y="470" text-anchor="middle" font-size="30" font-weight="800" fill="#172033">1,152</text>
+    <text x="704" y="497" text-anchor="middle" font-size="14" font-weight="650" fill="#637187">outputs</text>
+
+    <rect x="808" y="430" width="160" height="96" rx="18" fill="#eaf7f7" stroke="#bfe0e2"/>
+    <text x="888" y="470" text-anchor="middle" font-size="30" font-weight="800" fill="#172033">2,304</text>
+    <text x="888" y="497" text-anchor="middle" font-size="14" font-weight="650" fill="#637187">judge rows</text>
+
+    <rect x="992" y="430" width="136" height="96" rx="18" fill="#f1f5f9" stroke="#ccd5e2"/>
+    <text x="1060" y="470" text-anchor="middle" font-size="30" font-weight="800" fill="#172033">2x</text>
+    <text x="1060" y="497" text-anchor="middle" font-size="14" font-weight="650" fill="#637187">repeats</text>
+  </g>
+
+  <text x="72" y="562" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" fill="#637187">Result values are computed from the saved Stage 2 complete judge score files in this repository.</text>
+</svg>
