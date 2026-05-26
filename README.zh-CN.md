@@ -200,7 +200,9 @@ python -m venv .venv
 
 本仓库支撑论文：
 
-**Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents**
+[Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents](https://arxiv.org/abs/2605.22634v2)
+
+项目官网：即将上线。
 
 引用本仓库时，请使用 `CITATION.cff` 中的元数据；如果后续通过 Zenodo 或同类服务归档，请引用对应的归档 DOI 和 release tag。
 

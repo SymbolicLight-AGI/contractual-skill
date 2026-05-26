@@ -200,7 +200,9 @@ Some experiment files intentionally contain synthetic secret-like strings or ris
 
 This repository supports the paper:
 
-**Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents**
+[Contractual Skills: A GovernSpec Design Framework for Enterprise AI Agents](https://arxiv.org/abs/2605.22634v2)
+
+Project website: coming soon.
 
 Use `CITATION.cff` for repository citation metadata. If this repository is archived with Zenodo or another service, cite the archived DOI and the release tag corresponding to the paper version.
 
