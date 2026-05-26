@@ -213,3 +213,7 @@ python -m venv .venv
 ## 许可证
 
 本仓库使用 MIT License，详见 `LICENSE`。
+
+## 维护者
+
+本项目由 Ting Liu（SymbolicLight Research）维护。

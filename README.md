@@ -213,3 +213,7 @@ The framework is lightweight by design. Runtime enforcement still depends on the
 ## License
 
 This repository is released under the MIT License. See `LICENSE`.
+
+## Maintainer
+
+This project is maintained by Ting Liu, SymbolicLight Research.
